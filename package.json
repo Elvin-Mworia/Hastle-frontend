@@ -9,9 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mapbox/mapbox-gl-geocoder": "^5.0.1",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.9",
+    "@mui/styled-engine-sc": "^5.10.6",
+    "@svgr/webpack": "^6.4.0",
+    "mapbox-gl": "^1.13.2",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-dropdown": "^1.11.0",
+    "react-icons": "^4.4.0",
+    "react-mapbox-gl": "^5.1.1",
+    "react-select": "^5.5.2",
+    "sass": "^1.55.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "eslint": "8.24.0",

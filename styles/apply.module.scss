@@ -1,0 +1,124 @@
+@import 'global';
+.container{
+    display:flex;
+    flex-direction: column;
+    margin:0;
+    width:100vw;
+    height:160vh;
+    align-items:center;
+    h1{
+        font-family:$f-primary;
+        font-size:1.5rem;
+        margin-top:3rem;
+        
+    }
+    .applyWrapper{
+        width:60vw; height:90%;
+        margin-top:2vh;
+        display:flex;
+        flex-direction: column;
+        border-radius:$radius;
+        font-family:$f-primary;
+        background:#F0E7E2;
+        
+        align-items:center;
+         h4{
+            font-family: $f-primary;
+            color:$theme-color;
+        }
+        h3{
+             font-family: $f-primary;
+            color:$theme-color;
+        } 
+        h2{
+             font-family: $f-primary;
+            color:$theme-color;
+        }
+        hr{
+            color:$theme-color;
+       
+        }
+        .settings{
+            position: relative;
+            top:2rem;
+            width:44rem;
+            border-radius: $radius;
+            background-color:white ;
+           margin-bottom:1rem; 
+           padding:.5rem;
+        span{
+            font-family:"Poppins";
+            font-size:1rem;
+        }
+           
+        }
+        .jobDetails{
+            width:44rem;
+            margin-top:2rem;
+            height:22rem;
+            border-radius: $radius;
+            background-color:white ;
+            margin-bottom:2rem;
+             padding:.5rem;
+            p{
+                font-family:"Poppins";
+            font-size:1rem; 
+            }
+            span{
+            font-family:"Poppins";
+            font-size:1rem;
+            margin-bottom:.1rem;
+        }
+        h4{
+            margin-bottom: .5rem;;
+        }
+        .content{
+            display:flex;
+            flex-direction: column;
+            ;
+
+ .date{
+            position:relative;
+            margin-left:auto;
+            margin-right:2rem;
+        }
+        }
+       
+        
+        }
+        .coverLetter{
+            width:44rem;
+            height:20rem;
+            border-radius: $radius;
+            background-color:white ;
+            margin-bottom:1rem;
+            padding:.5rem;
+            display:flex;
+            flex-direction:column;
+            align-items:start;
+            span{
+                margin-left:2.2rem;
+                font-size:1rem;
+                width:90%;
+            }
+            h2{
+                margin-bottom:.5rem;
+            }
+            input{
+                width:90%;
+                height:10rem;
+                background-color:beige;
+                border-radius:$radius;
+                border:none;
+                margin: .2rem auto .2rem auto;
+
+
+            }
+            
+
+        }
+        .buttonsWrapper{
+
+        }
+           }
+}

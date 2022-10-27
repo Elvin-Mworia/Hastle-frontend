@@ -1,0 +1,31 @@
+.container {
+  padding: 0;
+  margin: 0;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  left: 0 !important;
+  position: fixed;
+}
+
+.container .logo {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  display: flex;
+}
+
+.container h3 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  color: white;
+  font-family: SeoulHangang CB;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=logo.module.css.map */

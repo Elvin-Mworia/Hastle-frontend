@@ -1,0 +1,103 @@
+@import 'global';
+.container{
+    position:relative;
+    display:flex;
+    width:100vw;
+    height:250vh;
+    justify-content: center;
+    
+    .jobWrapper{
+        width:60%;
+        background-color:#F0E7E2;
+        border-radius: $radius;
+        position: relative;
+        top:5rem;
+        height:200vh;
+        display:flex;
+        flex-direction:column;
+        &:nth-child(1){
+            
+            input{
+                height:3rem;
+                width:90%;
+            }
+        }
+         &:nth-child(3){
+            .select{
+                width:20%;
+            }
+        }
+         &:nth-child(4){
+            .content{span{
+                font-size:.5rem ;
+            }}
+        }
+         &:nth-child(5){
+            .content>input{
+            
+               height:10rem;
+               width:90%;
+            
+            }
+        }
+       .card{
+        height:30vh;
+        width:90%;
+        background-color:transparent;
+        display:flex;
+        flex-direction:column;
+        margin-left:2rem;
+        h3{
+            margin-bottom:0;
+            font-size: small;
+      color:$theme-color;
+        }
+        .content{
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+            margin-top:0;
+            P{
+                line-height:.7rem;
+                font-size:1rem;
+                font-weight: 500;
+            }
+        }
+        span{
+            font-size: small;
+            font-weight: bolder;
+        }
+       .content{
+        display:flex;
+        flex-direction: column;
+        margin-left:2rem;
+        h3{
+            margin-bottom: 0;
+        }
+        p{
+            margin:.2rem;
+            font-size: .8rem;
+            font-family:$f-primary;
+        }
+        .indent{
+            margin-top:.3rem;
+            margin-left:4rem;
+        }
+        
+       }
+        
+       }
+       button{
+        height:2.2rem;
+        width:6rem;
+        background-color:#F27400;
+        border-radius:2rem;
+        border:none;
+        position:relative;
+        bottom:-2rem;
+        margin-left:auto;
+        margin-right:2rem;
+        font-weight: bold;
+       }
+       }
+}

@@ -1,0 +1,27 @@
+@import 'global';
+.container{
+    padding:0;
+    margin:0;
+    width:117px;
+    height:84px;
+    display:flex;
+    flex-direction:column;
+    left:0 !important;
+    position: fixed;
+    background-image: url("../public/image2.svg");
+    text-align: center;
+background-repeat: no-repeat;
+background-origin: center center;
+    
+    h3{
+            
+        position:relative;
+        font-family:"Cookie";
+        font-style: normal;
+        font-weight: 400;
+        font-size:1rem;
+        color: #000000;
+        background: transparent;
+      
+}
+}

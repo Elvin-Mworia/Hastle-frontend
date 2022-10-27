@@ -1,0 +1,101 @@
+.container {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+}
+
+.container .logo h3 {
+  position: absolute;
+  left: 10px;
+  color: white;
+  font-family: SeoulHangang CB;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.container .cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 40vw;
+  height: 60vh;
+  margin: auto;
+  border: 1px solid #F27400;
+  border-radius: 1rem;
+}
+
+.container .cardContainer .cardHolder {
+  display: flex;
+  height: 10rem;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .cardContainer .cardHolder .card {
+  width: 16vw;
+  height: 90%;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin: .5rem;
+}
+
+.container .cardContainer .cardHolder .card h5 {
+  text-align: center;
+  max-width: 80%;
+  margin-left: 1rem;
+}
+
+.container .cardContainer .cardHolder .card:nth-of-type(1) {
+  background-color: #D9D9D9;
+}
+
+.container .cardContainer .cardHolder .card:nth-of-type(1) .client {
+  color: #F27400;
+}
+
+.container .cardContainer .cardHolder .card:nth-of-type(1):hover {
+  outline: 1px solid #494747;
+}
+
+.container .cardContainer .cardHolder .card:nth-of-type(2) {
+  background-color: white;
+}
+
+.container .cardContainer .cardHolder .card:nth-of-type(2) .worker {
+  color: black;
+}
+
+.container .cardContainer .cardHolder .card:nth-of-type(2):hover {
+  outline: 1px solid #d87d28;
+}
+
+.container .cardContainer button {
+  width: 10rem;
+  height: 2rem;
+  color: black;
+  font-weight: bold;
+  background-color: #f2c94c;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.container .cardContainer h6 > a {
+  color: #f27400;
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=signup.module.css.map */

@@ -1,0 +1,50 @@
+@import 'global';
+.container{
+    position:relative;
+    width:80vw;
+    display:flex;
+    flex:1;
+    height:100vh;
+    margin:0 auto 0 auto;
+    .parentWrapper{
+        display:flex;
+        width:100%;
+        margin-top:2rem;
+
+    }
+    .wrapper{
+        height:75vh;
+        margin:auto;
+        width:50%;
+        background-color:#F5E2D0;
+        border-radius:$radius;
+        display:block;
+        
+        padding:1rem;
+        .buyform{
+            display: flex;
+            flex-direction: column;
+            
+            height:30vh;
+            width:70%;
+            input{
+                width:60%;
+                height:5rem;
+                &:focus{
+                    border:1px solid $theme-color;
+                }
+            }
+        }
+        .buttonsWrapper{
+        position:relative;
+            height:3rem;
+           margin-top:4rem;
+            margin-left:90%;
+            
+            Button{
+background-color: $theme-color;
+border-radius:2rem;
+            }
+        }
+    }
+}

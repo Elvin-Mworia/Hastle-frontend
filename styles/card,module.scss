@@ -1,0 +1,6 @@
+@import 'global';
+.card{
+    &:hover{
+        border:1px solid $theme-color;
+    }
+}

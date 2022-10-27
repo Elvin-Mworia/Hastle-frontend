@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["global.scss"],"sourcesContent":["\r\n$logo:SeoulHangang CB;\r\n$f-primary:Roboto,sans-serif;\r\n$btn-color:rgba(242, 201, 76, 1);\r\n$mobile-view:600px;\r\n$tablet-view:960px;\r\n$border-color:#F27400;\r\n$radius:.5rem;\r\n$theme-color:rgba(242, 116, 0, 1);"],"file":"global.css"}

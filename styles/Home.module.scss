@@ -1,0 +1,171 @@
+@import 'global';
+.container {
+  padding: 0;
+  margin:0;
+  height:300vh;
+  width:100vw;
+}
+
+.main {
+  min-height: 100vh;
+  padding:0;
+  
+  display: flex;
+  flex-direction: column;
+  
+}
+.logo{
+  position:absolute;
+  left:0;
+  margin-top:0;
+  top:-5px;
+  margin-left:0;
+  margin-right:auto;
+}
+
+  .navbar{
+  width:100%;
+  position:sticky;
+  top:0;
+  height:6rem;
+  display:flex;
+  
+  justify-content:space-between;
+h3{
+  position:absolute;
+  left:10px;
+  color:#fff;
+  font-family:$logo;
+  font-style: normal;
+font-weight: 400;
+
+}
+}
+.nav{
+  width:60%;
+  height:3rem;
+  border-radius:2rem;
+  background-color: rgba(217, 217, 217, 1);
+  display:flex;
+  align-items:center;
+  margin:auto; 
+  .inputContainer{
+    position:relative;
+    height:2rem;
+    display:flex;
+    align-items:center;
+    .searchIcon{
+      position:absolute;
+      right:5px;
+      &:hover{
+        scale:1.1;
+      }
+    
+    }
+    .navbarSec{
+      width:30%;
+      display:flex;
+      height:3rem;
+      position:relative;
+      justify-content: space-evenly;
+li> .btn{
+  width:3rem;
+  height:2rem;
+  padding:1rem;
+}
+
+
+
+}
+  }
+  input{
+    height:2rem;
+    border-radius:1rem;
+    border:none;
+    
+  }
+  nav{
+    position:relative;
+    width:50%;
+  }
+  nav>ul{
+    display:flex;
+    justify-content:space-evenly;
+    list-style: none;
+    font-family: $f-primary;
+    font-size:1rem;
+    li>a{
+      display:flex;
+      align-items: center;
+    }
+    li>a>.binoculars{
+      margin-left:.1rem;
+    }
+    li>a>.upload{
+      margin-left:.1rem;
+      height:1rem;
+      width:1rem;
+    }
+
+}}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 4rem 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}

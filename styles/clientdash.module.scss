@@ -1,0 +1,165 @@
+@import 'global';
+.container{
+    display:flex;
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+    .dashboard{
+        top:10vh;
+        position: relative;
+        width:80vw;
+        margin:auto;
+        height:90vh;
+        display:grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: "dashboardleft dashboardleft dashboardleft  dashboardright" ;
+        .dashboardLeft{
+            grid-area:dashboardleft;
+            display:flex;
+            flex-direction:column;
+            flex-shrink:5;
+            .dashboardLeftwrapper{
+                width:40vw;
+                display:flex;
+                flex-direction:column;
+                height:100%; 
+                align-items: flex-start;
+                .heading{
+height:10vh;
+width:20vw;
+display:block;
+margin-bottom: 1rem;
+span{
+    font-size:.8rem;
+    font-family: $f-primary;
+    letter-spacing: .2rem;
+}
+
+
+
+                }
+                //middle section left side of grid
+                .middle{
+                    height:45vh;
+                    width:100%;
+                    border-radius:$radius;
+                    border:1px solid $theme-color;
+                    display:flex;
+                    flex-direction:column;
+                    align-items: center;
+                    margin-bottom:.5rem;
+                    h3{
+                        font-size:1rem;
+                        line-height:1.1rem;
+                        margin:.5rem auto .5rem .5rem;
+                        
+                    }
+                    hr{
+color:$theme-color;
+                    }
+                    a{
+                        width:10rem;
+                        border-radius:2rem;
+                        background-color: $theme-color;
+                        height:1.5rem;
+                        text-align: center;
+                        font-weight:bold;
+                        color:white;
+                        padding:auto;
+                    }
+                 
+
+
+                }
+                .thirdSection{
+                    width:100%;
+                    height:90vh;
+                    border:1px solid $theme-color;
+                    border-radius:$radius;
+                    background-color:#D9D9D9;
+                    padding:1rem;
+                    margin-top:1rem;
+                    h4{
+                        font-size:1rem;
+                        margin-bottom:0;
+                        margin-top:.5rem;
+                    }
+                    hr{
+                        margin-top:0;
+                    }
+                    h6{
+                        margin-top:0;
+                        font-weight:bold;
+                        margin-bottom:0;
+                    }
+                    .steps{
+                        width:100%;
+                        display:flex;
+                        height:18vh;
+                        margin-top:0;
+                        margin-bottom:.5rem;
+                        justify-content: space-evenly;
+                        flex-shrink: 5;
+                        &:nth-child(1){
+                           margin-top: auto;
+
+                        }
+                       
+                        .stepContent{
+                            display:flex;
+                            flex-direction:column;
+                            height:80%;
+                            width:80%;
+                            margin-left:2rem;
+                            margin-top:0;
+                            h4{
+                                font-size:1rem;
+                                margin-bottom:0;
+                            }
+                            p{
+                                font-size:.9rem;
+                                font-family:"Poppins";
+                                margin-top:0;
+                                margin-left:1rem;
+                            }
+                        }
+                      
+                    }
+                }
+            }
+
+        }
+        .dashboardRight{
+            position:relative;
+            top:2rem;
+            grid-area:dashboardright;
+            display:flex;
+            align-items: flex-end;
+            flex-direction: column;
+            
+          
+          
+          div{
+            position:relative;
+            display:inline-block;
+            top:2rem;
+          }
+            
+  
+            button{
+               background-color:$theme-color;
+                width:10rem;
+                height:2.5rem;
+                border-radius:2rem;
+                margin:1rem;
+                padding:.3rem;
+                a{
+                    font-weight:bold;
+
+                }
+            }
+            
+        }
+    }
+}
