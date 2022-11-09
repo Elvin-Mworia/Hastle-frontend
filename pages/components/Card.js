@@ -5,7 +5,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+import Link from "next/link"
+import Cardelem from "./cardelem";
 
 const bull = (
   <Box
@@ -21,32 +22,33 @@ const cardSX = {
   },
 };
 
-const card = (
-  <React.Fragment>
-    <CardContent>
+// const card =(title,jobdescription)=> (
+//   <React.Fragment>
+//     <CardContent>
       
-      <Typography variant="h5" component="div">
-        Lorem ipsum dolor sit amet
-      </Typography>
+//       <Typography variant="h5" component="div">
+//     {title}
+//       </Typography>
      
-      <Typography variant="body2">
-       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo, convallis vel, pellentesque ornare. Lacus, nunc vulputate mattis imperdiet lacus risus congue scelerisque eget. Fusce neque cum tincidunt tortor neque nullam pulvinar quam. Ut id massa et vel tellus risus sed lacus. Curabitur eu consectetur tortor amet tincidunt sed quis. 
+//       <Typography variant="body2">
+//       {jobdescription}
     
-      </Typography>
-    </CardContent>
-    <CardActions >
-      <Button size="small" sx={{color:'#F27400',fontWeight:'bold'}}>Apply</Button>
-      <Button size="small" sx={{color:'#000000',fontWeight:'bold'}}>Save</Button>
-    </CardActions>
-  </React.Fragment>
-);
+//       </Typography>
+//     </CardContent>
+//     <CardActions >
+//       <Button size="small" sx={{color:'#F27400',fontWeight:'bold'}}><Link href="/Apply"><a>Apply</a></Link></Button>
+//       <Button size="small" sx={{color:'#000000',fontWeight:'bold'}}>Save</Button>
 
-export default function OutlinedCard() {
+//     </CardActions>
+//   </React.Fragment>
+// );
+
+export default function OutlinedCard({title,jobdescription,id }) {
   return (
     <Box sx={{ minWidth: 275,cardSX}}>
       <Card variant="outlined" 
       sx={{background:'#E1CECE',margin:'.3rem',borderRadius:'.5rem'}}
-      >{card}</Card>
+      ><Cardelem title={title} jobdescription={jobdescription} id={id}/></Card>
     </Box>
   );
 }

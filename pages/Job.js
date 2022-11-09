@@ -4,16 +4,44 @@ import svg1 from "../public/locationicon.svg";
 import Radio from '@mui/material/Radio';
 import {useState}  from 'react';
 import Select from "react-select";
-
+import BasicModal from "./components/mapModal";
 import Image from "next/image";
+import Navbar from "./components/navbar";
+import {useMutation,gql} from "@apollo/client"
+ import {useSelector} from "react-redux"
+import {updateuserinfo} from "../store/userInfoReducer"
+import { uuid } from 'uuidv4';
 
- 
+
 export default function  Job(){
+const post=gql`
+mutation PostJob($input: jobInput!) {
+  postJob(input: $input) {
+    jobdescription
+    title
+    id
+  }
+}
+`
+
   const [selectedValue, setSelectedValue] =useState('');
+  const [category,setCategory]=useState('')
+  const [title,setTitle]=useState('');
+const [description,setDescription]=useState('')
+const[pay,setPay]=useState('')
+const [numofworkers,setNum]=useState('')
+  const {id}=useSelector((state)=>state.userInfo)
+  const {lng,lat}=useSelector((state)=>state.map)
+const [postjob,{data}]=useMutation(post);
+
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
     event.preventDefault();
   };
+
+  const handleSelect=(selectedOption)=>{
+    setCategory(selectedOption);
+  }
   const options=[{value:"Plumbing",label:"Plumbing"},
   {value:"Welding",label:"Welding"},
   {value:"Labour",label:"Labour/Kazi ya mkono"},
@@ -24,11 +52,36 @@ export default function  Job(){
   
   ]
   const submit=(e)=>{
-    e.preventDefault();
-  }
-    return(<div className={styles.container}>
+ let objdata={
+out:uuid()
 
-    <div className={styles.jobWrapper}> 
+ }
+ console.log(objdata);
+postjob({
+  variables:{
+    input:{
+      id:uuid(),
+      text:description,
+      createdBy:id,
+      long:lng,
+      lat:lat,
+      title,
+      category,
+      scope:selectedValue,
+      amount:Number(pay),
+      status:"Open",
+      numofworkers:Number(numofworkers),
+    }
+  }
+})
+   e.preventDefault();
+
+  }
+    return(
+    <><Navbar/>
+    <div className={styles.container}>
+
+    <form className={styles.jobWrapper}> 
    
     <div className={styles.card}>
     <h3><span>1.</span>Title</h3> 
@@ -44,7 +97,7 @@ export default function  Job(){
    
 
    </div>
-   <input type="text" />
+   <input type="text"onChange={(e)=>{setTitle(e.target.value)}} value={title} required />
     </div>
     </div>
 
@@ -55,6 +108,7 @@ export default function  Job(){
     <h3>Add the pin point of prospective job premises</h3>
     <p>(This helps your accepted workers with direction to the job&apos;s site)</p>
     <Image src={svg1} height="" width="" alt=" " onClick={()=>alert("clicked")} style={{cursor:"pointer"}}></Image>
+    <BasicModal/>
   
     </div>
 
@@ -77,7 +131,7 @@ export default function  Job(){
       <option value='orange'>Construction</option>
       <option value='orange'>Cleaning</option>
     </select> */}
-  <Select options={options} onChange={handleChange} className={styles.select} isMulti/>
+  <Select options={options} onChange={handleSelect} className={styles.select} isMulti/>
     </div>
    
  </div>
@@ -119,7 +173,7 @@ export default function  Job(){
         <div className={styles.content}>
         <p>This is how prospective workers figure out what you need and why you’re great to work with!
 Include your expectations about the task or deliverable, what you’re looking for in a work relationship, and anything unique about your task.</p>
-    <input type="text"/>
+    <input type="text" required value={description} onChange={(e)=>{setDescription(e.target.value)}}/>
     
         </div>
   
@@ -129,19 +183,26 @@ Include your expectations about the task or deliverable, what you’re looking f
     <h3><span>6.</span>Budget</h3> 
     <div className={styles.content}>
     <p>The pay you offer for the job</p>
-    <span>KSH.<input type="text"/></span>
+    <span>KSH.<input type="text" onChange={(e)=>{setPay(e.target.value)}} value={pay} required/></span>
     </div>
     </div>
     
+    <div className={styles.card}>
+    <h3><span>7.</span>Number of Workers</h3> 
+    <div className={styles.content}>
+    <p>The number of worker/workers required to perform the job</p>
+    <span><input type="text" onChange={(e)=>{setNum(e.target.value)}} value={numofworkers} required/></span>
+    </div>
+    </div>
   
    
     
     
    <button type="submit" onClick={submit}>Post</button>
-    </div>
+    </form>
     
    </div> 
-
+</>
     
     
     

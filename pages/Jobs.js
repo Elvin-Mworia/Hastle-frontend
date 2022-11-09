@@ -5,17 +5,52 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import OutlinedCard from "./components/Card";
 import ResponsiveAppBar from "./components/appbar";
+import Navbar from "./components/navbar";
+import apollo from "./components/apolloclient.js"
+import {gql} from "@apollo/client"
+import {useSelector} from "react-redux"
 
 
-export default function Jobs(){
+export  async function getStaticProps(){
+    const {data}= await apollo.query({
+        query:gql`
+        query Posts{
+            posts{
+                jobdescription,
+  scope,
+  title,
+  amount,
+ id,
+  numofworkers
+            }
+        }
+        `
+    });
+    //console.log(data);
+       
+        return {
+            props:{jobs:data.posts},
+            revalidate:10,
+        }
+        
+        
+      
+
+}
+
+export default function Jobs({jobs}){
 const[content,setContent]=useState("");
-
+ const {name,token,id}=useSelector((state)=>state.userInfo)
+console.log(jobs)
 const handleChange=(e)=>{
     setContent(e.target.value);
     e.preventDefault();
 
 }
-    return(<div className={styles.container}>
+    return(
+    <>
+    <Navbar/>
+    <div className={styles.container}>
     <input className={styles.searchbar} type="text" placeholder="search job.." onChange={handleChange}/>
     <div className={styles.bodyContainer}>
 <div className={styles.contentHolder}>
@@ -23,11 +58,16 @@ const handleChange=(e)=>{
 <ResponsiveAppBar className={styles.header}/> 
 {/* </div> */}
 <div className={styles.jobs}>
-<OutlinedCard className={styles.card}/>
-<OutlinedCard className={styles.card}/>
-<OutlinedCard className={styles.card}/>
-<OutlinedCard className={styles.card}/>
-<OutlinedCard className={styles.card}/>
+{jobs.map((job,key)=>{
+    return(
+    <>
+  
+   <OutlinedCard className={styles.card}  title={job.title}  jobdescription={job.jobdescription} id={job.id}/>
+    </>
+    )
+})}
+
+
 
 </div>
 </div>
@@ -39,9 +79,9 @@ const handleChange=(e)=>{
 
     </Stack>
 
-<h5>Elvin Mworia</h5>{/* comes from the server     */}
+<h5>{name}</h5>{/* comes from the server     */}
     {/* fetch token balance from server */}
-    <span>Available token:60</span>
+    <span>Available token:{token}</span>
 </div>
 <div className={styles.workerjobs}>
 <h5>My Job Categories</h5>
@@ -68,5 +108,7 @@ const handleChange=(e)=>{
     
     
     </div>
-    </div>)
+    </div>
+    </>
+    )
 }

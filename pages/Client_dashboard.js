@@ -7,31 +7,126 @@ import svg1 from "../public/image6.svg";
 import svg2 from "../public/image7.svg";
 import svg3 from "../public/image8.svg";
 import svg4 from "../public/image9.svg";
-
+import Navbar from "./components/navbar";
+import {useSelector} from "react-redux"
+import {updateuserinfo} from "../store/userInfoReducer"
+import { useQuery,gql } from "@apollo/client";
+import { useEffect } from "react";
+import axios from "axios";
+import OutlinedCard from "./components/CardClientdash";
+import apollo from "./components/apolloclient"
+import store from "../store/store"
 // import 'react-dropdown/style.css';
 
 // const DynamicHeader = dynamic(() => import(Dropdown from 'react-dropdown'), {
 //   suspense: true,
 // })
-export default function Client_dashboard(){
-    return(<div className={styles.container}>
+
+ 
+export async function getStaticProps(){
+  const state=store.getState();
+
+  const post=gql`
+   query Posts($input:userInput!){
+    jobs(input:$input){
+  jobdescription,
+title,
+status
+   }
+
+  }
+ 
+  `
+const ID=state.userInfo.id
+const {data}= await apollo.query({
+  query:post,
+  variables:{input:{id:"636503c54c59cd655ab0db94"}}
+}
+
+
+
+)
+console.log(data);
+
+
+  return{
+    props:{data}
+  }
+}
+
+
+export default function Client_dashboard({data}){
+var postlist=[];
+ console.log(data);
+
+  const {name,token,id}=useSelector((state)=>state.userInfo)
+//const {data,loading,error}=useQuery(post,{variables:{input:{id:ID}}});
+//console.log(data);
+useEffect(()=>{
+
+
+// axios.get(`http://localhost:3005/clientpost/posts/:${ID}`).then(
+// (res,err)=>{
+// console.log(res.data.posts.length);
+// res.data.posts.map((post)=>{
+//   postlist.push(post);
+
+// })
+// console.log(postlist.length);
+// //postlist=res.data.posts;
+
+// //console.log(postlist.length);
+// //console.log(postlist);
+
+// }
+// ).catch(
+//   (e)=>{
+//     console.error(e);
+//   }
+// )
+
+
+},[])
+  // posts({
+  //   variables:{
+  //     input:{
+  //   id:ID
+  // }
+  // }})
+
+
+    return(
+    <><Navbar/>
+    <div className={styles.container}>
     <div  className={styles.dashboard}>
     <div className={styles.dashboardLeft}>
 
     <div className={styles.dashboardLeftwrapper}>
     <div className={styles.heading}> 
     <span>Your Dashboard</span><br/>
-    <span>Elvin Mworia</span><br/>
-    <span>Available Tokens:60</span>
+    <span>{name}</span><br/>
+    <span>Available Tokens:{token}</span>
     </div>
 
     <div className={styles.middle}>
     <h3>Your Postings</h3><br/>
     <hr/>
-    <Image src={svg} height="" width="" alt=""></Image>
+    {data.length>0 ?
+    data.map((post,key)=>{
+      return(
+        <>
+        <OutlinedCard title={post.title} jobdescription={post.jobdescription}/>
+        </>
+      )
+    })
+    :
+     <><Image src={svg} height="" width="" alt=""></Image>
     <h4>No active jobs posts at the moment</h4>
     <span>Post a job and let talent come to you</span><br/>
 <Link href="/Post_Job"><a>Add Job</a></Link>
+</>
+    }
+   
 
     </div>
 
@@ -84,5 +179,6 @@ export default function Client_dashboard(){
     </div>
     </div>
 
-    </div>)
+    </div>
+    </>)
 }

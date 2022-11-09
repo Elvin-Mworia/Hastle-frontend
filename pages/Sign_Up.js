@@ -6,14 +6,27 @@ import {useState}  from 'react';
 import Radio from '@mui/material/Radio';
 import Link from "next/link";
 import Router from "next/router"
+import {useSelector,useDispatch} from "react-redux";
+import {updateuser} from "../store/userReducer";
+
 export default function Sign_Up(){
   const [selectedValue, setSelectedValue] =useState('');
+  const [Client,setClient]=useState(true);
+  const [Worker,setWorker]=useState(false);
+  const dispatch=useDispatch();
+  const {client,worker}=useSelector((state)=>state.user);
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
+  //  selectedValue==="client"?setClient(!Client):setWorker(!Worker);
+   // console.log({Client,Worker});
     event.preventDefault();
   };
   const submit= (event) => {
+     
+      
+     // dispatch(updateuser({client:Client,worker:Worker}))
+      console.log({client,worker});
     selectedValue==="client"?Router.push("/signup/client"):Router.push("/signup/worker");
     event.preventDefault();
   };
@@ -26,7 +39,15 @@ export default function Sign_Up(){
             <div className={styles.card}>
             <Radio
         checked={selectedValue === 'client'}
-        onChange={handleChange}
+        onChange={(e)=>{handleChange(e)
+   //setClient(true)
+   setWorker(false)   
+dispatch(updateuser({client:!client,worker:Worker}))
+
+setWorker(false)
+
+        
+        }}
         className={styles.client}
         value="client"
         name="radio-buttons"
@@ -37,7 +58,13 @@ export default function Sign_Up(){
             <div className={styles.card}>
             <Radio
         checked={selectedValue === 'worker'}
-        onChange={handleChange}
+      onChange={(e)=>{handleChange(e)
+       // setWorker(true)
+        setClient(false)
+        dispatch(updateuser({client:!client,worker:!worker}))
+
+        
+        }}
         className={styles.worker}
         value="worker"
         name="radio-buttons"

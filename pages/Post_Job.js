@@ -2,7 +2,7 @@ import styles from '../styles/postjob.module.scss'
 import Link from "next/link";
 import {useState}  from 'react';
 import Radio from '@mui/material/Radio';
-
+import Navbar from "./components/navbar";
 
 import Router from "next/router"
 
@@ -20,7 +20,9 @@ export default function Post_Job(){
 
     event.preventDefault();
   };
-    return(<div className={styles.container}>
+    return(
+    <><Navbar/>
+    <div className={styles.container}>
       
        <div className={styles.cardContainer}>
        <div className={styles.wrapper}>
@@ -65,5 +67,6 @@ export default function Post_Job(){
        </div>
        
     </div>
+    </>
     )
 }

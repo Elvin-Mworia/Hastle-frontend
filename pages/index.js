@@ -1,64 +1,27 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
+import workers from "../public/taxi-handshake.gif";
+import client from "../public/client.png";
+import construction from "../public/construction.jpg";
 import svg from "../public/image2.svg";
 import Link from "next/link";
+import test1 from "../public/testimonials/image1.jpg";
+import test2 from "../public/testimonials/handyman.png";
+import test3 from "../public/testimonials/plumber.png";
+import test4 from "../public/testimonials/wielder.png";
 import { FaSearch } from "react-icons/fa";
 import { GiBinoculars } from "react-icons/gi";
 import UploadFileTwoToneIcon from '@mui/icons-material/UploadFileTwoTone';
-
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import Navbar from "./components/navbar";
 
 export default function Home() {
   return (
     <>
-        <div className={styles.navbar}>
-      
-      <div className={styles.nav}>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/Jobs"><a>Find Work<GiBinoculars className={styles.binoculars}/></a></Link>
-              
-              
-            </li>
-            <li>
-             
-              <Link href="/Jobs"><a>Post Job<UploadFileTwoToneIcon className={styles.upload} /></a></Link>
-           
-              
-            </li>
-            <li>
-             
-              <Link href="/About"><a>About Us</a></Link>
-              
-            </li>
-          </ul>
-        </nav>
-        <div className={styles.inputContainer}>
-        <input placeholder="Search"/>
-        <FaSearch className={styles.searchIcon}/>
-        </div>
-        
-        <nav className={styles.navbarSec} >
-          <ul>
-            <li className={styles.btn}>
-             <Link href="/Login"><a>Login</a></Link>
-              
-              
-            </li>
-            <li className={styles.btn}>
-             <Link href="/Sign_Up"><a>Sign Up</a></Link>
-              
-              
-            </li>
-           
-          </ul>
-        </nav>
-       
-       
-      
-         </div>
-      </div>
+    <Navbar/>
     <div className={styles.container}>
       <Head>
         <title>Hastle</title>
@@ -68,13 +31,68 @@ export default function Home() {
   
 
       <main className={styles.main}>
-      
+      <section className={styles.firstSection}>
+      <Image src={workers} alt="" height="400" width="600"></Image>
+<h1>Tafuta your next hustle bila stress.</h1>
+      </section>
+<section className={styles.secondSection}>
+ <div>
+ <Image src={client} alt="" height="250" width="350"></Image>
+
+<h1>Post a job and approve the workers you want to collaborate with in your project</h1></div>
+  <div>
+   <Image src={construction} alt="" height="250" width="350"></Image>
+
+<h1 className={styles.second}>Work does not have to be far,find opportunities near you</h1>
+
+</div>
+
+</section>
+<section className={styles.third}>
+<Link href="/Sign_Up">
+<a>Sign Up To Get Started</a>
+</Link>
+</section>
+<section className={styles.fourth}>
+<h2>Testimonials</h2>
+<div className={styles.testimonials}>
+<div><Image src={test1} height={200} width={200} alt=""></Image>
+<h6>"Hastle imenijenga sana kwa kazi yangu,napata clients for my business more easily."</h6>
+</div>
+<div><Image src={test2} height={200} width={200} alt=""></Image>
+<h6>"So many opportunities from within,Hastle has saved me time and money by connecting me to works nearby."</h6>
+</div>
+<div><Image src={test3} height={200} width={200} alt=""></Image>
+<h6>"Hastle imeniexpose to the many clients that need my plumbing services conviniently bila mambo mingi."</h6>
+</div>
+<div><Image src={test4} height={200} width={200} alt=""></Image>
+<h6>"Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting."</h6></div>
+
+</div>
+
+</section>
+
       
         
  
       </main>
 
       <footer className={styles.footer}>
+      <div>
+      <Link href="#"><a>How to Hire</a></Link>
+       <Link href="#"><a>How to find work</a></Link>
+        <Link href="#"><a>Help & Support</a></Link>
+      </div>
+         <div>
+          <Link href="#"><a>Terms& Conditions</a></Link>
+           <Link href="#"><a>Privacy Policy</a></Link>
+            <Link href="#"><a>Contact Us</a></Link>
+         </div>
+            <div>
+            <Link href="#"><a><InstagramIcon/></a></Link>
+           <Link href="#"><a><WhatsAppIcon/></a></Link>
+            <Link href="#"><a><TwitterIcon/></a></Link>
+            </div>
         
       </footer>
     </div>

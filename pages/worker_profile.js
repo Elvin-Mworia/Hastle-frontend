@@ -4,11 +4,15 @@ import Image from "next/image";
 import svg from "../public/image4.svg";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import FolderList from "./components/list";
-import electrician from 
+import electrician from  "/public/electrician.jpg";
+import Navbar from "./components/navbar";
 
 export default function worker_profile(){
     const skills=["Carpentry","Plumbing","Labour work"]
-    return(<div className={styles.container}>
+    return(
+    <>
+    <Navbar/>
+    <div className={styles.container}>
 
     <div className={styles.profileWrapper}>
     <div className={styles.firstWrapper}>
@@ -40,7 +44,7 @@ export default function worker_profile(){
    
     <div className={styles.workImages}>
      
-    <Image src={} height="" width="" alt="loaded image"></Image>
+    <Image src="/public/electrician.jpg" height="100px" width="100px" alt="loaded image"></Image>
     </div>
     </div>
     
@@ -51,5 +55,6 @@ export default function worker_profile(){
     </div>
 
 
-    </div>)
+    </div>
+    </>)
 }
