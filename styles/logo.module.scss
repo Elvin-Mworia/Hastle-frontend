@@ -7,11 +7,10 @@
     display:flex;
     flex-direction:column;
     left:0 !important;
-    position: fixed;
-    background-image: url("../public/image2.svg");
+    position: sticky;
+    background-color: transparent;
     text-align: center;
-background-repeat: no-repeat;
-background-origin: center center;
+
 z-index:999;
     
     h3{
@@ -34,6 +33,7 @@ z-index:999;
   height:6rem;
   display:flex;
   z-index:1000;
+  background-color: transparent;
   
   justify-content:space-between;
 h3{
@@ -50,12 +50,13 @@ font-weight: 400;
   width:70%;
   height:3rem;
   border-radius:2rem;
-  background-color: rgba(217, 217, 217, 1);
+  background-color: transparent;
   display:flex;
   align-items:center;
   margin:auto; 
   .navFirst{
     width:60%;
+
   }
   .inputContainer{
     position:relative;
@@ -101,11 +102,13 @@ li> .btn{
     justify-content:space-evenly;
     list-style: none;
     font-family: $f-primary;
-    font-size:1rem;
+    font-size:1.5rem;
     width:100%;
+    color:#fff;
     li>a{
       display:flex;
       align-items: center;
+      
     }
     li>a>.binoculars{
       margin-left:.1rem;
