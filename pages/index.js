@@ -37,8 +37,11 @@ Work does not have to be far,Hastle will help you find opportunities near you.
 <section className={styles.secondSection}>
 <h1 className={styles.howitworks}>How it works</h1>
  <div>
- 
-<h1>Post a job and approve the workers you want to collaborate with in your project</h1>
+ <h4>1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</h4>
+<h4>2.If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
+  regarding the job categories you selected within a specied distance radius.
+</h4>
+<h4>3.Apply for the job by sending a proposal to the employer and wait for a feedback.</h4>
 <Link href="/Sign_Up">
 <a>Sign Up To Get Started</a>
 </Link>
