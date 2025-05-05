@@ -2,13 +2,16 @@
 .container {
   padding: 0;
   margin:0;
-  height:100vh;
+  height:150vh;
   width:100vw;
-  background-image: url("../public/hastle6.png");
-  background-size:cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: auto;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  
 
+
+}
+.container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 
 .main {
@@ -16,6 +19,11 @@
   padding:0;
   display: flex;
   flex-direction: column;
+  background-image: url("../public/hastle6.png");
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
 
 }
 .logo{
@@ -48,25 +56,32 @@
   }
 }
 .secondSection{
-  height:40vh;
-  width:100vw;
-  margin-top:2rem;
+  height:55vh;
+  width:70vw;
+  margin-left:15vw;
+  border-radius: 10px;
+  margin-top:10rem;
    display:flex;
    flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom:0;
+  background-color: #eaeaea;
+  opacity: .7;
+  padding:1.5rem;
   h1.howitworks{
-    color:white;
+    color:black;
+    z-index:1000;
     text-decoration:underline;
+   
   }
   div{
     display:flex;
     margin-top:0;
     flex-direction: column;
-    
-    align-items: center;
-    width:100vw;
+    justify-content:center;
+    align-items: flex-start;
+    width:90%;
     height:100%;
 
   .second{
@@ -77,29 +92,31 @@
     text-decoration: underline;
     color:$theme-color;
     font-weight: bolder;
+    align-self: center;
 
   }
   }
 
 }
-.third{
-  height:10vh;
-  width:100vw;
-  text-align:center;
-  margin-top:2rem;
-  border: none;
-  a{
-    font-size:2rem;
-    text-decoration: underline;
-    color:$theme-color;
+// .third{
+//   height:10vh;
+//   width:100vw;
+//   text-align:center;
+//   margin-top:2rem;
+//   border: none;
+//   a{
+//     font-size:2rem;
+//     text-decoration: underline;
+//     color:$theme-color;
 
-  }
-}
+//   }
+// }
 .fourth{
   height:60vh;
   background:white;
   text-align:center;
   display:inline-block;
+  margin-top:3rem;
   h2{
     color:$theme-color;
     text-decoration:underline;
