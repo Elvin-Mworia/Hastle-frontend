@@ -92,6 +92,7 @@ li> .btn{
     border-radius:1rem;
     border:none;
     
+    
   }
   nav{
     position:relative;
@@ -102,9 +103,10 @@ li> .btn{
     justify-content:space-evenly;
     list-style: none;
     font-family: $f-primary;
-    font-size:1.5rem;
+    font-size:1rem;
     width:100%;
     color:#fff;
+    margin-right:.5rem;
     li>a{
       display:flex;
       align-items: center;
