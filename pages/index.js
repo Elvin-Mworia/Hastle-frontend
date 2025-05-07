@@ -6,10 +6,10 @@ import client from "../public/client.png";
 import construction from "../public/construction.jpg";
 import svg from "../public/image2.svg";
 import Link from "next/link";
-import test1 from "../public/testimonials/image1.jpg";
-import test2 from "../public/testimonials/handyman.png";
-import test3 from "../public/testimonials/plumber.png";
-import test4 from "../public/testimonials/wielder.png";
+import test1 from "/public/testimonials/image1.jpg";
+import test2 from "/public/testimonials/handyman.png";
+import test3 from "/public/testimonials/plumber.png";
+import test4 from "/public/testimonials/wielder.png";
 import { FaSearch } from "react-icons/fa";
 import { GiBinoculars } from "react-icons/gi";
 import UploadFileTwoToneIcon from '@mui/icons-material/UploadFileTwoTone';
@@ -17,6 +17,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Navbar from "./components/navbar";
+import CardHomepage from './components/CardHomepage';
 
 
 export default function Home() {
@@ -53,18 +54,10 @@ Work does not have to be far,Hastle will help you find opportunities near you.
 <section className={styles.fourth}>
 <h2>Testimonials</h2>
 <div className={styles.testimonials}>
-<div><Image src={test1} height={200} width={200} alt=""></Image>
-<h6>&quot;Hastle imenijenga sana kwa kazi yangu,napata clients for my business more easily.&quot;</h6>
-</div>
-<div><Image src={test2} height={200} width={200} alt=""></Image>
-<h6>&quot;So many opportunities from within,Hastle has saved me time and money by connecting me to works nearby.&quot;</h6>
-</div>
-<div><Image src={test3} height={200} width={200} alt=""></Image>
-<h6>&quot;Hastle imeniexpose to the many clients that need my plumbing services conviniently bila mambo mingi.&quot;</h6>
-</div>
-<div><Image src={test4} height={200} width={200} alt=""></Image>
-<h6>&quot;Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting.&quot;</h6></div>
-
+  <CardHomepage name="John Doe" testimonial="Hastle imenijenga sana kwa kazi yangu,napata clients for my business more easily." imagelink={test1}/>
+  <CardHomepage name="Joe Doe" testimonial="&quot;So many opportunities from within,Hastle has saved me time and money by connecting me to works nearby.&quot;" imagelink={test2}/>
+  <CardHomepage name="Jaden Smith" testimonial="&quot;Hastle imeniexpose to the many clients that need my plumbing services conviniently bila mambo mingi.&quot;" imagelink={test3}/>
+  <CardHomepage name="Jim Doe" testimonial="&quot;Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting.&quot;" imagelink={test4}/>
 </div>
 
 </section>

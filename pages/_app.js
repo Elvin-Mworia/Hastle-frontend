@@ -12,7 +12,7 @@ import { GiBinoculars } from "react-icons/gi";
 import UploadFileTwoToneIcon from '@mui/icons-material/UploadFileTwoTone';
 import {persistStore} from "redux-persist"
 import {PersistGate} from "redux-persist/integration/react"
-
+import { ChakraProvider } from '@chakra-ui/react'
 function MyApp({ Component, pageProps }) {
   const persistor=persistStore(store);
   return(<>
@@ -24,7 +24,9 @@ function MyApp({ Component, pageProps }) {
     <ApolloProvider client={apollo}>
     <Provider store={store}>
     <PersistGate persistor={persistor}>
+    <ChakraProvider>
     <Component {...pageProps} />
+    </ChakraProvider>
     </PersistGate>
   
   </Provider>
