@@ -70,9 +70,11 @@
   opacity: .7;
   padding:1.5rem;
   h1.howitworks{
-    color:black;
+    color:$theme-color;
     z-index:1000;
     text-decoration:underline;
+    font-weight: bolder;
+    align-self: center;
    
   }
   div{
@@ -85,6 +87,10 @@
     height:100%;
     h4{
       color:black;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+
     }
 
   .second{
@@ -123,6 +129,10 @@
   h2{
     color:$theme-color;
     text-decoration:underline;
+    font-weight: bolder;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
   .testimonials{
     height:40vh;
