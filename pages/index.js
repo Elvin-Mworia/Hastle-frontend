@@ -29,6 +29,26 @@ const fadeInAnimationSection={
   animate: { opacity: 1, y: 0, transition: { delay: 1.1, duration: 0.5, ease: "easeInOut" } },
 };
 
+const fadeInAnimationhowItWorks={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.3, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationhowItWorksh4_1={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationhowItWorksh4_2={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.7, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationhowItWorksh4_3={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.9, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationSignUp={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 2.1, duration: 0.5, ease: "easeInOut" } },
+};
 export default function Home() {
   return (
     <>
@@ -51,16 +71,36 @@ Work does not have to be far,Hastle will help you find opportunities near you.
 <motion.section className={styles.secondSection}
 variants={fadeInAnimationSection}
 initial="initial"
-animate="animate">
-<h1 className={styles.howitworks}>How it works</h1>
+animate="animate"
+whileInView={{ opacity: 1, y: 0 }} // State when in view (visible and in place)
+viewport={{ once: true, amount: 0.5 }}>
+<motion.h1 
+variants={fadeInAnimationhowItWorks}
+initial="initial"
+animate="animate"
+className={styles.howitworks}>How it works</motion.h1>
 <div>
- <h4>1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</h4>
-<h4>2.If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
+ <motion.h4
+ variants={fadeInAnimationhowItWorksh4_1}
+ initial="initial"
+ animate="animate"
+ >1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</motion.h4>
+<motion.h4
+variants={fadeInAnimationhowItWorksh4_2}
+initial="initial"
+animate="animate"
+>If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
   regarding the job categories you selected within a specied distance radius.
-</h4>
-<h4>3.Apply for the job by sending a proposal to the employer and wait for a feedback.</h4>
+</motion.h4>
+<motion.h4
+variants={fadeInAnimationhowItWorksh4_3}
+initial="initial"
+animate="animate">3.Apply for the job by sending a proposal to the employer and wait for a feedback.</motion.h4>
 <Link href="/Sign_Up">
-<a>Sign Up To Get Started</a>
+<motion.a
+variants={fadeInAnimationSignUp}
+initial="initial"
+animate="animate">Sign Up To Get Started</motion.a>
 </Link>
 </div>
 </motion.section>
