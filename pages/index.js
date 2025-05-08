@@ -24,6 +24,10 @@ const fadeInAnimationH1={
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { delay: .8, duration: 0.5, ease: "easeOut" } },
 };
+const fadeInAnimationSection={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.1, duration: 0.5, ease: "easeInOut" } },
+};
 
 export default function Home() {
   return (
@@ -44,7 +48,10 @@ Work does not have to be far,Hastle will help you find opportunities near you.
 </motion.h1>
 
       </section>
-<section className={styles.secondSection}>
+<motion.section className={styles.secondSection}
+variants={fadeInAnimationSection}
+initial="initial"
+animate="animate">
 <h1 className={styles.howitworks}>How it works</h1>
 <div>
  <h4>1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</h4>
@@ -56,7 +63,7 @@ Work does not have to be far,Hastle will help you find opportunities near you.
 <a>Sign Up To Get Started</a>
 </Link>
 </div>
-</section>
+</motion.section>
 <section className={styles.fourth}>
 <h2>Testimonials</h2>
 <div className={styles.testimonials}>
