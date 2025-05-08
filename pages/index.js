@@ -18,6 +18,41 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Navbar from "./components/navbar";
 import CardHomepage from './components/CardHomepage';
+import {motion} from 'framer-motion';
+
+const fadeInAnimationH1={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: .8, duration: 0.5, ease: "easeOut" } },
+};
+const fadeInAnimationSection={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.1, duration: 0.5, ease: "easeInOut" } },
+};
+
+const fadeInAnimationhowItWorks={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.3, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationhowItWorksh4_1={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationhowItWorksh4_2={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.7, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationhowItWorksh4_3={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.9, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationSignUp={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 2.1, duration: 0.5, ease: "easeInOut" } },
+};
+const fadeInAnimationCard =  {
+  hidden: { opacity: 0, x: -100 }, // Start off-screen to the left
+  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 10 } }, // Slide in
+};
 
 
 export default function Home() {
@@ -30,32 +65,64 @@ export default function Home() {
         <Navbar/>
       <section className={styles.firstSection}>
     
-<h1>Finding your next hustle does not have to be stressful.
-Work does not have to be far,Hastle will help you find opportunities near you.
-</h1>
+<motion.h1
+variants={fadeInAnimationH1}
+initial="initial"
+animate="animate"
+>Finding your next hustle <span>does not</span> have to be  <s className={styles.stressful}>stressful</s>.
+Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best opportunities</span> near you.
+</motion.h1>
 
       </section>
-<section className={styles.secondSection}>
-<h1 className={styles.howitworks}>How it works</h1>
+<motion.section className={styles.secondSection}
+variants={fadeInAnimationSection}
+initial="initial"
+animate="animate"
+whileInView={{ opacity: 1, y: 0 }} // State when in view (visible and in place)
+viewport={{ once: true, amount: 0.5 }}>
+<motion.h1 
+variants={fadeInAnimationhowItWorks}
+initial="initial"
+animate="animate"
+className={styles.howitworks}>How it works</motion.h1>
 <div>
- <h4>1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</h4>
-<h4>2.If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
+ <motion.h4
+ variants={fadeInAnimationhowItWorksh4_1}
+ initial="initial"
+ animate="animate"
+ >1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</motion.h4>
+<motion.h4
+variants={fadeInAnimationhowItWorksh4_2}
+initial="initial"
+animate="animate"
+>If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
   regarding the job categories you selected within a specied distance radius.
-</h4>
-<h4>3.Apply for the job by sending a proposal to the employer and wait for a feedback.</h4>
+</motion.h4>
+<motion.h4
+variants={fadeInAnimationhowItWorksh4_3}
+initial="initial"
+animate="animate">3.Apply for the job by sending a proposal to the employer and wait for a feedback.</motion.h4>
 <Link href="/Sign_Up">
-<a>Sign Up To Get Started</a>
+<motion.a
+variants={fadeInAnimationSignUp}
+initial="initial"
+animate="animate">Sign Up To Get Started</motion.a>
 </Link>
 </div>
-</section>
+</motion.section>
 <section className={styles.fourth}>
 <h2>Testimonials</h2>
-<div className={styles.testimonials}>
-  <CardHomepage name="John Doe" testimonial="&quot;Hastle imenijenga sana kwa kazi yangu,napata clients for my business more easily.&quot;" imagelink={test1}/>
-  <CardHomepage name="Joe Doe" testimonial="&quot;Hastle has saved me time and money by connecting me to works nearby.&quot;" imagelink={test2}/>
-  <CardHomepage name="Jaden Smith" testimonial="&quot;Hastle imeniexpose to the many clients that need my plumbing services conviniently.&quot;" imagelink={test3}/>
-  <CardHomepage name="Jim Doe" testimonial="&quot;Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting.&quot;" imagelink={test4}/>
-</div>
+<motion.div 
+ className={styles.testimonials}>
+  <CardHomepage 
+name="John Doe" testimonial="&quot;Hastle imenijenga sana kwa kazi yangu,napata clients for my business more easily.&quot;" imagelink={test1}/>
+  <CardHomepage 
+ name="Joe Doe" testimonial="&quot;Hastle has saved me time and money by connecting me to works nearby.&quot;" imagelink={test2}/>
+  <CardHomepage  
+ name="Jaden Smith" testimonial="&quot;Hastle imeniexpose to the many clients that need my plumbing services conviniently.&quot;" imagelink={test3}/>
+  <CardHomepage 
+ name="Jim Doe" testimonial="&quot;Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting.&quot;" imagelink={test4}/>
+</motion.div>
 
 </section>
  </main>
