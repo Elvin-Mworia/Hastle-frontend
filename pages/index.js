@@ -18,7 +18,12 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Navbar from "./components/navbar";
 import CardHomepage from './components/CardHomepage';
+import {motion} from 'framer-motion';
 
+const fadeInAnimationH1={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: .8, duration: 0.5, ease: "easeOut" } },
+};
 
 export default function Home() {
   return (
@@ -30,9 +35,13 @@ export default function Home() {
         <Navbar/>
       <section className={styles.firstSection}>
     
-<h1>Finding your next hustle does not have to be stressful.
+<motion.h1
+variants={fadeInAnimationH1}
+initial="initial"
+animate="animate"
+>Finding your next hustle does not have to be stressful.
 Work does not have to be far,Hastle will help you find opportunities near you.
-</h1>
+</motion.h1>
 
       </section>
 <section className={styles.secondSection}>
