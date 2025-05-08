@@ -63,8 +63,8 @@ export default function Home() {
 variants={fadeInAnimationH1}
 initial="initial"
 animate="animate"
->Finding your next hustle does not have to be stressful.
-Work does not have to be far,Hastle will help you find best opportunities near you.
+>Finding your next hustle <span>does not</span> have to be  <s className={styles.stressful}>stressful</s>.
+Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best opportunities</span> near you.
 </motion.h1>
 
       </section>
