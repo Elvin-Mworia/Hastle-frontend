@@ -41,13 +41,36 @@
   display:flex;
   align-items: center;
   h1{
-    line-height: 2rem;
-    font-size: 30px;
-    width:25rem;
+    line-height: 3.3rem;
+    font-size: 55px;
+    width:45rem;
     position: relative;
     margin-left:1rem;
     color:white;
     font-weight: bold;
+    span{
+      color:$theme-color;
+      font-weight: bolder;
+      text-decoration:underline;
+      text-shadow:
+      -1px -1px 0 black,
+      1px -1px 0 black,
+      -1px 1px 0 black,
+      1px 1px 0 black;
+  
+    }
+    span.hastle{
+      color:green
+    }
+    s.stressful{
+      text-decoration: line-through  $theme-color 4px!important;
+      color:white !important;
+      text-shadow:
+      -1px -1px 0 black,
+      1px -1px 0 black,
+      -1px 1px 0 black,
+      1px 1px 0 black;
+    }
   }
 
   image{
