@@ -64,7 +64,7 @@ variants={fadeInAnimationH1}
 initial="initial"
 animate="animate"
 >Finding your next hustle does not have to be stressful.
-Work does not have to be far,Hastle will help you find opportunities near you.
+Work does not have to be far,Hastle will help you find best opportunities near you.
 </motion.h1>
 
       </section>
