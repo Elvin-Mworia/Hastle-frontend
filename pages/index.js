@@ -49,6 +49,12 @@ const fadeInAnimationSignUp={
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { delay: 2.1, duration: 0.5, ease: "easeInOut" } },
 };
+const fadeInAnimationCard =  {
+  hidden: { opacity: 0, x: -100 }, // Start off-screen to the left
+  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 10 } }, // Slide in
+};
+
+
 export default function Home() {
   return (
     <>
@@ -106,12 +112,17 @@ animate="animate">Sign Up To Get Started</motion.a>
 </motion.section>
 <section className={styles.fourth}>
 <h2>Testimonials</h2>
-<div className={styles.testimonials}>
-  <CardHomepage name="John Doe" testimonial="&quot;Hastle imenijenga sana kwa kazi yangu,napata clients for my business more easily.&quot;" imagelink={test1}/>
-  <CardHomepage name="Joe Doe" testimonial="&quot;Hastle has saved me time and money by connecting me to works nearby.&quot;" imagelink={test2}/>
-  <CardHomepage name="Jaden Smith" testimonial="&quot;Hastle imeniexpose to the many clients that need my plumbing services conviniently.&quot;" imagelink={test3}/>
-  <CardHomepage name="Jim Doe" testimonial="&quot;Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting.&quot;" imagelink={test4}/>
-</div>
+<motion.div 
+ className={styles.testimonials}>
+  <CardHomepage 
+name="John Doe" testimonial="&quot;Hastle imenijenga sana kwa kazi yangu,napata clients for my business more easily.&quot;" imagelink={test1}/>
+  <CardHomepage 
+ name="Joe Doe" testimonial="&quot;Hastle has saved me time and money by connecting me to works nearby.&quot;" imagelink={test2}/>
+  <CardHomepage  
+ name="Jaden Smith" testimonial="&quot;Hastle imeniexpose to the many clients that need my plumbing services conviniently.&quot;" imagelink={test3}/>
+  <CardHomepage 
+ name="Jim Doe" testimonial="&quot;Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting.&quot;" imagelink={test4}/>
+</motion.div>
 
 </section>
  </main>
