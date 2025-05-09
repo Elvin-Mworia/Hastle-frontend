@@ -8,13 +8,14 @@ export default function CardHomepage({name,testimonial,imagelink }) {
     width:"100%",
     objectFit:"cover",
     backgroundOrigin:"center",
-    backgroundPosition:"center"
+    backgroundPosition:"center",
+    marginBottom:0,
   }
   const styles_div={
     height:"120px",
     width:"150px",
     marginTop:".1em",
-    marginBottom:".05em",
+    marginBottom:0,
     display:"flex",
     flexDirection:"column",
     justifyContent:"center",
@@ -23,23 +24,18 @@ export default function CardHomepage({name,testimonial,imagelink }) {
   }
     return(
        
-        <Card minH={350} minW={200} maxW={200} borderRadius="5px" boxShadow='lg' bg='wheat' style={{display:"flex",justifyContent:"center",alignItems:"center",flexShrink:0}} >
-  <CardBody>
+        <Card minH={280} minW={200} maxW={200} variant="outline" borderRadius="5px" boxShadow='lg' bg='#1A1A1A' style={{display:"flex",justifyContent:"center",alignItems:"center",flexShrink:0,padding:0}} >
+  <CardBody style={{marginBottom:0,marginTop:0}}>
    <Stack  spacing='1' >
-        <Heading size='sm' style={{marginRight:"20%"}}>{name}</Heading>
+        <Heading size='sm' style={{marginRight:"20%",marginBottom:0,color:"white"}}>{name}</Heading>
         <div style={styles_div} > 
             <Image src={imagelink} alt="testimonial" style={styles_Image} />
             </div>
-    </Stack>
-  </CardBody>
-  <CardFooter>
-    
-  <Text color="green" fontSize='sm' fontWeight={300} textAlign="center" >
+            <Text style={{color:"#f27400",width:"80%",fontWeight:300}} fontSize='sm' fontWeight={300} textAlign="center" >
         {testimonial}
       </Text>
-    
-    </CardFooter>
-
+    </Stack>
+  </CardBody>
 </Card>
        
     )
