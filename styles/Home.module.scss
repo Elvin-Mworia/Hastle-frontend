@@ -4,7 +4,7 @@
   margin:0;
   height:150vh;
   width:100vw;
-  overflow: auto;
+  overflow:auto;
   scrollbar-width: none;  /* Firefox */
   -ms-overflow-style: none;  
 
@@ -144,14 +144,13 @@
 //   }
 // }
 .fourth{
-  height:60vh;
+  height:65vh;
   background:white;
   text-align:center;
   display:inline-block;
   margin-top:3rem;
   h2{
     color:$theme-color;
-    text-decoration:underline;
     font-weight: bolder;
     font-size: 1rem;
     margin-bottom: 1rem;
@@ -172,6 +171,7 @@
         font-size:.8rem;
         margin:auto;
         z-index: 500;
+        
 
       }
     }
