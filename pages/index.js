@@ -1,9 +1,5 @@
-import Image from 'next/image'
+
 import styles from '../styles/Home.module.scss'
-import workers from "../public/taxi-handshake.gif";
-import client from "../public/client.png";
-import construction from "../public/construction.jpg";
-import svg from "../public/image2.svg";
 import Link from "next/link";
 import test1 from "/public/testimonials/image1.jpg";
 import test2 from "/public/testimonials/handyman.png";
@@ -18,6 +14,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import Navbar from "./components/navbar";
 import CardHomepage from './components/CardHomepage';
 import {motion} from 'framer-motion';
+import { Highlight } from '@chakra-ui/react'
 
 const fadeInAnimationH1={
   initial: { opacity: 0, y: 20 },
@@ -80,8 +77,9 @@ export default function Home() {
 variants={fadeInAnimationH1}
 initial="initial"
 animate="animate"
->Finding your next hustle <span>does not</span> have to be  <s className={styles.stressful}>stressful</s>.
-Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best opportunities</span> near you.
+>
+Finding your next hustle <span>does not</span> have to be  <s className={styles.stressful}>stressful</s>.
+Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best</span> opportunities near you.
 </motion.h1>
 
       </section>
