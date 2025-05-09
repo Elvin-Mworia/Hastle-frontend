@@ -89,28 +89,33 @@ initial="initial"
 animate="animate"
 whileInView={{ opacity: 1, y: 0 }} // State when in view (visible and in place)
 viewport={{ once: true, amount: 0.5 }}>
+
+<div>
 <motion.h1 
 variants={fadeInAnimationhowItWorks}
 initial="initial"
 animate="animate"
 className={styles.howitworks}>How it works</motion.h1>
-<div>
+<ol>
+<li>
  <motion.h4
  variants={fadeInAnimationhowItWorksh4_1}
  initial="initial"
  animate="animate"
- >1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</motion.h4>
-<motion.h4
+ >1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling
+  in the necessary details as you&apos;ll be guided.</motion.h4></li>
+<li><motion.h4
 variants={fadeInAnimationhowItWorksh4_2}
 initial="initial"
 animate="animate"
 >2.If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
   regarding the job categories you selected within a specied distance radius.
-</motion.h4>
-<motion.h4
+</motion.h4></li>
+<li><motion.h4
 variants={fadeInAnimationhowItWorksh4_3}
 initial="initial"
-animate="animate">3.Apply for the job by sending a proposal to the employer and wait for a feedback.</motion.h4>
+animate="animate">3.Apply for the job by sending a proposal to the employer and wait for a feedback.</motion.h4></li>
+</ol>
 <Link href="/Sign_Up">
 <motion.a
 variants={fadeInAnimationSignUp}
