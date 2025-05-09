@@ -106,7 +106,7 @@ className={styles.howitworks}>How it works</motion.h1>
 variants={fadeInAnimationhowItWorksh4_2}
 initial="initial"
 animate="animate"
->If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
+>2.If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
   regarding the job categories you selected within a specied distance radius.
 </motion.h4>
 <motion.h4
