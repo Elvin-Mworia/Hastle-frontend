@@ -8,6 +8,7 @@ import {updateuserinfo} from "../../store/userInfoReducer"
 import {postId} from "../../store/postId"
 import {useSelector,useDispatch} from "react-redux";
 import { useEffect } from "react";
+import { Input } from '@chakra-ui/react'
 export default function Navbar(){
 
   const dispatch=useDispatch();
@@ -40,7 +41,7 @@ export default function Navbar(){
           </ul>
         </nav>
         <div className={styles.inputContainer}>
-        <input placeholder="Search"/>
+      <Input placeholder="Search" variant='outline' focusBorderColor='lime'     _placeholder={{  color: 'black' }}/>
         <FaSearch className={styles.searchIcon}/>
         </div>
         
