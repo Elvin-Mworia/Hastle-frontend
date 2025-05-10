@@ -2,12 +2,19 @@ import Link from "next/link";
 import { FaSearch } from "react-icons/fa";
 import { GiBinoculars } from "react-icons/gi";
 import UploadFileTwoToneIcon from '@mui/icons-material/UploadFileTwoTone';
-import styles from "../../styles/logo.module.scss";
+import styles from "../../styles/navbar.module.scss";
 import {updateLoginState} from "../../store/loginStatus";
 import {updateuserinfo} from "../../store/userInfoReducer"
 import {postId} from "../../store/postId"
 import {useSelector,useDispatch} from "react-redux";
 import { useEffect } from "react";
+import { Input } from '@chakra-ui/react'
+import {motion} from "framer-motion"
+
+const fadeInAnimationNav={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: .5, duration: 0.5, ease: "easeIn" } },
+};
 export default function Navbar(){
 
   const dispatch=useDispatch();
@@ -18,7 +25,10 @@ export default function Navbar(){
         <>
           <div className={styles.navbar}>
       
-      <div className={styles.nav}>
+      <motion.div
+      variants={fadeInAnimationNav}
+      initial="initial"
+      animate="animate" className={styles.nav}>
         <nav className={styles.navFirst}>
           <ul>
             <li>
@@ -40,7 +50,7 @@ export default function Navbar(){
           </ul>
         </nav>
         <div className={styles.inputContainer}>
-        <input placeholder="Search"/>
+      <Input placeholder="Search" variant='outline' focusBorderColor='lime'     _placeholder={{  color: 'black' }}/>
         <FaSearch className={styles.searchIcon}/>
         </div>
         
@@ -73,7 +83,7 @@ export default function Navbar(){
        
        
       
-         </div>
+         </motion.div>
       </div>
         </>
     )

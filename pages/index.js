@@ -1,9 +1,5 @@
-import Image from 'next/image'
+
 import styles from '../styles/Home.module.scss'
-import workers from "../public/taxi-handshake.gif";
-import client from "../public/client.png";
-import construction from "../public/construction.jpg";
-import svg from "../public/image2.svg";
 import Link from "next/link";
 import test1 from "/public/testimonials/image1.jpg";
 import test2 from "/public/testimonials/handyman.png";
@@ -18,6 +14,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import Navbar from "./components/navbar";
 import CardHomepage from './components/CardHomepage';
 import {motion} from 'framer-motion';
+import { Highlight } from '@chakra-ui/react'
 
 const fadeInAnimationH1={
   initial: { opacity: 0, y: 20 },
@@ -80,8 +77,9 @@ export default function Home() {
 variants={fadeInAnimationH1}
 initial="initial"
 animate="animate"
->Finding your next hustle <span>does not</span> have to be  <s className={styles.stressful}>stressful</s>.
-Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best opportunities</span> near you.
+>
+Finding your next hustle <span>does not</span> have to be  <s className={styles.stressful}>stressful</s>.
+Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best</span> opportunities near you.
 </motion.h1>
 
       </section>
@@ -91,28 +89,33 @@ initial="initial"
 animate="animate"
 whileInView={{ opacity: 1, y: 0 }} // State when in view (visible and in place)
 viewport={{ once: true, amount: 0.5 }}>
+
+<div>
 <motion.h1 
 variants={fadeInAnimationhowItWorks}
 initial="initial"
 animate="animate"
 className={styles.howitworks}>How it works</motion.h1>
-<div>
+<ol>
+<li>
  <motion.h4
  variants={fadeInAnimationhowItWorksh4_1}
  initial="initial"
  animate="animate"
- >1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling in the necessary details as you&apos;ll be guided.</motion.h4>
-<motion.h4
+ >1.Sign up as a client(employer) if you have a job that needs to be done and post the task description filling
+  in the necessary details as you&apos;ll be guided.</motion.h4></li>
+<li><motion.h4
 variants={fadeInAnimationhowItWorksh4_2}
 initial="initial"
 animate="animate"
 >2.If you are a person looking to exchange their skills for money or have the know how to do certain tasks you can register and the app will send you notifications 
   regarding the job categories you selected within a specied distance radius.
-</motion.h4>
-<motion.h4
+</motion.h4></li>
+<li><motion.h4
 variants={fadeInAnimationhowItWorksh4_3}
 initial="initial"
-animate="animate">3.Apply for the job by sending a proposal to the employer and wait for a feedback.</motion.h4>
+animate="animate">3.Apply for the job by sending a proposal to the employer and wait for a feedback.</motion.h4></li>
+</ol>
 <Link href="/Sign_Up">
 <motion.a
 variants={fadeInAnimationSignUp}
