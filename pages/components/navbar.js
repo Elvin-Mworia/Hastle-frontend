@@ -10,6 +10,11 @@ import {useSelector,useDispatch} from "react-redux";
 import { useEffect } from "react";
 import { Input } from '@chakra-ui/react'
 import {motion} from "framer-motion"
+
+const fadeInAnimationNav={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: .5, duration: 0.5, ease: "easeIn" } },
+};
 export default function Navbar(){
 
   const dispatch=useDispatch();
@@ -20,7 +25,10 @@ export default function Navbar(){
         <>
           <div className={styles.navbar}>
       
-      <div className={styles.nav}>
+      <motion.div
+      variants={fadeInAnimationNav}
+      initial="initial"
+      animate="animate" className={styles.nav}>
         <nav className={styles.navFirst}>
           <ul>
             <li>
@@ -75,7 +83,7 @@ export default function Navbar(){
        
        
       
-         </div>
+         </motion.div>
       </div>
         </>
     )
