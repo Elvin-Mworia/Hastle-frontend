@@ -62,6 +62,9 @@ export default function Navbar(){
        {
   loginStatus===true && worker===true? <li className={styles.btn}> <Link href="/worker_profile"><a>My Profile</a></Link></li> :""
 }
+{
+  loginStatus===false ?<li className={styles.btn}> <Link href="/Sign_Up"><a >Sign Up</a></Link></li>:<></>
+}
 
           {
             loginStatus===true ?<li className={styles.btn}> <Link href="/"><a  onClick={()=>{dispatch(updateLoginState({loginStatus:!loginStatus}))
