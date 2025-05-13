@@ -1,15 +1,9 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 import {Provider} from "react-redux";
-import styles from "../styles/navbar.module.scss";
 import store from "../store/store";
 import apollo from "./components/apolloclient.js"
 import { ApolloProvider } from '@apollo/client';
-import Navbar from "./components/navbar";
-import Link from "next/link";
-import { FaSearch } from "react-icons/fa";
-import { GiBinoculars } from "react-icons/gi";
-import UploadFileTwoToneIcon from '@mui/icons-material/UploadFileTwoTone';
 import {persistStore} from "redux-persist"
 import {PersistGate} from "redux-persist/integration/react"
 import { ChakraProvider } from '@chakra-ui/react'
