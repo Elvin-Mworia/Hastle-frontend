@@ -53,7 +53,7 @@ setWorker(false)
         name="radio-buttons"
         inputProps={{ 'aria-label': 'Client' }}
       />
-      <h5>I’m a client looking to hire a worker</h5>
+      <h5>I&apo;m a client looking to hire a worker</h5>
             </div>
             <div className={styles.card}>
             <Radio
@@ -70,7 +70,7 @@ setWorker(false)
         name="radio-buttons"
         inputProps={{ 'aria-label': 'Worker' }}
       />
-      <h5>I’m a worker looking to find work</h5>
+      <h5>I&apos;m a worker looking to find work</h5>
             </div>
           
 
