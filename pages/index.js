@@ -79,7 +79,7 @@ initial="initial"
 animate="animate"
 >
 Finding your next hustle <span>does not</span> have to be  <s className={styles.stressful}>stressful</s>.
-Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best</span> opportunities near you.
+Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle</span> will <span>help</span> you find the <span>best </span> <span>opportunities near you</span> .
 </motion.h1>
 
       </section>
