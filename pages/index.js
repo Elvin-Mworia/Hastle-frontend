@@ -83,6 +83,7 @@ Work <span>does not</span> have to be far,<span className={styles.hastle}>Hastle
 </motion.h1>
 
       </section>
+      </main>
 <motion.section className={styles.secondSection}
 variants={fadeInAnimationSection}
 initial="initial"
@@ -149,9 +150,8 @@ viewport={{ once: true, amount: 1 }}>
  name="Jim Doe" testimonial="&quot;Hastle is the way wakuu,opportunities ni mob kwa watu kaa sisi wa handcrafting.&quot;" imagelink={test4}/>
   </motion.div>
 </motion.div>
-
 </section>
- </main>
+
 <footer className={styles.footer}>
         <div className={styles.footerContent}>
       <div>
