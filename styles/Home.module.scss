@@ -65,6 +65,9 @@
     span.hastle{
       color:green
     }
+    span:nth-of-type(6){
+      text-decoration: none;
+    }
     s.stressful{
       text-decoration: line-through  $theme-color 4px!important;
       color:white !important;
