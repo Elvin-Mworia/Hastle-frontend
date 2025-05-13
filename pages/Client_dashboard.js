@@ -14,7 +14,7 @@ import { useQuery,gql } from "@apollo/client";
 import { useEffect } from "react";
 import axios from "axios";
 import OutlinedCard from "./components/CardClientdash";
-import apollo from "./components/apolloclient"
+import apollo from "../utils/apolloclient"
 import store from "../store/store"
 // import 'react-dropdown/style.css';
 

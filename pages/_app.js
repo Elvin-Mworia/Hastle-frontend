@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import {Provider} from "react-redux";
 import store from "../store/store";
-import apollo from "./components/apolloclient.js"
+import apollo from "../utils/apolloclient.js"
 import { ApolloProvider } from '@apollo/client';
 import {persistStore} from "redux-persist"
 import {PersistGate} from "redux-persist/integration/react"

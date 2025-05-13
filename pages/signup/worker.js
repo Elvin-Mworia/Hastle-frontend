@@ -5,7 +5,7 @@ import { gql, useMutation} from "@apollo/client";
 import Image from "next/image";
 import {useFormik} from 'formik';
 import styles from '../../styles/client.module.scss';
-import { basicSchema } from "../components/basicSchema";
+import { basicSchema } from "../../utils/basicSchema";
 
 
 export default function Worker(){

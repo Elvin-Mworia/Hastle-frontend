@@ -1,5 +1,5 @@
 import OutlinedCard from "./components/Card";
-import apollo from "./components/apolloclient.js"
+import apollo from "../utils/apolloclient.js"
 import {gql} from "@apollo/client"
 
 export  async function getStaticProps(){

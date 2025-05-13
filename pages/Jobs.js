@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import OutlinedCard from "./components/Card";
 import ResponsiveAppBar from "./components/appbar";
 import Navbar from "./components/navbar";
-import apollo from "./components/apolloclient.js"
+import apollo from "../utils/apolloclient.js"
 import {gql} from "@apollo/client"
 import {useSelector} from "react-redux"
 
