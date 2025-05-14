@@ -1,6 +1,6 @@
 import styles from "../styles/jobsworker.module.scss"
 import {useState} from "react";
-import * as React from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import OutlinedCard from "./components/Card";
@@ -10,42 +10,44 @@ import apollo from "../utils/apolloclient.js"
 import {gql} from "@apollo/client"
 import {useSelector} from "react-redux"
 
-
-export  async function getStaticProps(){
-    const {data}= await apollo.query({
-        query:gql`
-        query Posts{
-            posts{
-                jobdescription,
-  scope,
-  title,
-  amount,
- id,
-  numofworkers
-            }
+export async function getServerSideProps() {
+  try {
+    const { data } = await apollo.query({
+      query: gql`
+        query Posts {
+          posts {
+            jobdescription,
+            scope,
+            title,
+            amount,
+            id,
+            numofworkers
+          }
         }
-        `
+      `
     });
-    //console.log(data);
-       
-        return {
-            props:{jobs:data.posts},
-            revalidate:10,
-        }
-        
-        
-      
-
+    
+    return {
+      props: {
+        jobs: data?.posts || []
+      }
+    };
+  } catch (error) {
+    // Silent error handling for build process
+    return {
+      props: {
+        jobs: []
+      }
+    };
+  }
 }
 
 export default function Jobs({jobs}){
 const[content,setContent]=useState("");
  const {name,token,id}=useSelector((state)=>state.userInfo)
-console.log(jobs)
 const handleChange=(e)=>{
     setContent(e.target.value);
     e.preventDefault();
-
 }
     return(
     <>
@@ -58,14 +60,15 @@ const handleChange=(e)=>{
 <ResponsiveAppBar className={styles.header}/> 
 {/* </div> */}
 <div className={styles.jobs}>
-{jobs.map((job,key)=>{
-    return(
-    <>
-  
-   <OutlinedCard className={styles.card}  title={job.title}  jobdescription={job.jobdescription} id={job.id}/>
-    </>
-    )
-})}
+{jobs?.map((job, index) => (
+  <OutlinedCard 
+    key={index}
+    className={styles.card} 
+    title={job.title} 
+    jobdescription={job.jobdescription} 
+    id={job.id}
+  />
+))}
 
 
 
