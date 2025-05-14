@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack'
 import Navbar from "./components/navbar";
 import {updateuserinfo} from "../store/userInfoReducer"
 import {gql} from "@apollo/client";
-import apollo from "./components/apolloclient"
+import apollo from "../utils/apolloclient"
 import store from "../store/store"
 import{useSelector} from "react-redux"
 

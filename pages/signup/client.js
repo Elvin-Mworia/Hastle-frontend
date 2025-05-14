@@ -4,7 +4,7 @@ import { gql, useMutation} from "@apollo/client";
 import Image from "next/image";
 import {useFormik} from 'formik';
 import styles from '../../styles/client.module.scss';
-import { basicSchema } from "../components/basicSchema";
+import { basicSchema } from "../../utils/basicSchema";
 import Router from "next/router"
 import {useSelector} from "react-redux"
 import {updateuserinfo} from "../../store/userInfoReducer"
