@@ -1,3 +1,5 @@
+
+import React from 'react';
 import styles from "../styles/clientdash.module.scss";
 import Link from "next/link";
 import dynamic from 'next/dynamic'
@@ -23,34 +25,34 @@ import store from "../store/store"
 // })
 
  
-export async function getStaticProps(){
-  const state=store.getState();
-
-  const post=gql`
-   query Posts($input:userInput!){
-    jobs(input:$input){
-  jobdescription,
-title,
-status
-   }
-
-  }
- 
-  `
-const ID=state.userInfo.id
-const {data}= await apollo.query({
-  query:post,
-  variables:{input:{id:"636503c54c59cd655ab0db94"}}
-}
-
-
-
-)
-console.log(data);
-
-
-  return{
-    props:{data}
+export async function getServerSideProps(){
+  try {
+    const post=gql`
+    query Posts($input:userInput!) {
+      jobs(input:$input) {
+        jobdescription,
+        title,
+        status
+      }
+    }
+    `
+    const {data}= await apollo.query({
+      query:post,
+      variables:{input:{id:"636503c54c59cd655ab0db94"}}
+    });
+    
+    return {
+      props:{data}
+    };
+  } catch (error) {
+    console.error("Error fetching jobs data:", error);
+    return {
+      props:{
+        data: {
+          jobs: []
+        }
+      }
+    };
   }
 }
 
@@ -111,21 +113,23 @@ useEffect(()=>{
     <div className={styles.middle}>
     <h3>Your Postings</h3><br/>
     <hr/>
-    {data.length>0 ?
-    data.map((post,key)=>{
+    {data.jobs && data.jobs.length > 0 ?
+    data.jobs.map((post,key)=>{
       return(
-        <>
+        <React.Fragment key={key}>
         <OutlinedCard title={post.title} jobdescription={post.jobdescription}/>
-        </>
+        </React.Fragment>
       )
     })
     :
-     <><Image src={svg} height="" width="" alt=""></Image>
-    <h4>No active jobs posts at the moment</h4>
-    <span>Post a job and let talent come to you</span><br/>
-<Link href="/Post_Job"><a>Add Job</a></Link>
-</>
+     <div className={styles.noJobs}>
+       <Image src={svg} height={200} width={200} alt="No jobs illustration" />
+       <h4>No active jobs posts at the moment</h4>
+       <span>Post a job and let talent come to you</span><br/>
+       <Link href="/Post_Job"><a>Add Job</a></Link>
+     </div>
     }
+    
    
 
     </div>
@@ -135,7 +139,7 @@ useEffect(()=>{
     <hr/>
     <h6>Steps</h6>
     <div className={styles.steps}>
-    <Image className={styles.image} src={svg1} height="" width="" alt=""></Image>
+    <Image className={styles.image} src={svg1} height={100} width={100} alt="Step 1 - Post a job" />
     <div className={styles.stepContent}>
     <h4>1.Post a Job in the application.
   </h4>
@@ -144,22 +148,22 @@ useEffect(()=>{
     </div>
     
     </div>
-    <div className={styles.steps}><Image  className={styles.image} src={svg2} height="" width="" alt=""></Image>
+    <div className={styles.steps}><Image className={styles.image} src={svg2} height={100} width={100} alt="Step 2" />
      <div className={styles.stepContent}>
       <h4>2.Get a Proposal/Request from a worker/talent.
   </h4>
-  <p>A strong working relationship starts with open communication. Here`&apos;`s your chance to ask about experience, set expectations for what you need, and discuss terms of the work. </p>
+  <p>A strong working relationship starts with open communication. Here&apos;s your chance to ask about experience, set expectations for what you need, and discuss terms of the work. </p>
   </div>
     
     </div>
-    <div className={styles.steps}><Image  className={styles.image} src={svg3} height="" width="" alt=""></Image>
+    <div className={styles.steps}><Image className={styles.image} src={svg3} height={100} width={100} alt="Step 3" />
      <div className={styles.stepContent}>
       <h4>3.Start working Together.
   </h4>
-  <p>Once you both agree on terms, collaborate with simple and secure tools like our chat system, the worker is sent the location of your task premises.Exchanging your contacts is upto you but it’s encouraged for flexible communication. </p>
+  <p>Once you both agree on terms, collaborate with simple and secure tools like our chat system, the worker is sent the location of your task premises. Exchanging your contacts is upto you but it&apos;s encouraged for flexible communication. </p>
   </div>
     </div>
-    <div className={styles.steps}><Image  className={styles.image} src={svg4} height="" width="" alt=""></Image>
+    <div className={styles.steps}><Image className={styles.image} src={svg4} height={100} width={100} alt="Step 4" />
      <div className={styles.stepContent}>
       <h4>4.Pay the worker on the agreed terms</h4>
       <p>Once the worker has finished the job and you are satisfied pay them on the agreed amount. Failure to which they have a right to report you on the plartform and be banned.</p>

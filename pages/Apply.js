@@ -8,29 +8,39 @@ import apollo from "../utils/apolloclient"
 import store from "../store/store"
 import{useSelector} from "react-redux"
 
-export async function getStaticProps(){
- const state=store.getState();
+export async function getServerSideProps(){
+  try {
     const post=gql`
     query Singlepost($input: userInput!) {
-  singlepost(input: $input) {
-    title
-    category
-    jobdescription
-  }
-}
-
-`
-const ID=state.postId.postid
-console.log(ID);
-const {data}= await apollo.query({
-  query:post,
-  variables:{input:{id:"6361f0d4720031c10f3f05e1"}}
-})
-
-
-    return{
-        props:{data}
+      singlepost(input: $input) {
+        title
+        category
+        jobdescription
+      }
     }
+    `
+    const {data}= await apollo.query({
+      query:post,
+      variables:{input:{id:"6361f0d4720031c10f3f05e1"}}
+    });
+    
+    return {
+      props:{data}
+    };
+  } catch (error) {
+    console.error("Error fetching post data:", error);
+    return {
+      props:{
+        data: {
+          singlepost: {
+            title: "Error loading post",
+            category: "",
+            jobdescription: "There was an error loading the post data."
+          }
+        }
+      }
+    };
+  }
 }
 
 export default function Apply({data}){
