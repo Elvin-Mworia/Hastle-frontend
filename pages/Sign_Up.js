@@ -1,10 +1,9 @@
-
 import styles from '../styles/signup.module.scss'
 import Image from "next/image";
 //import * as React from 'react';
 import {useState}  from 'react';
 //import Radio from '@mui/material/Radio';
-import { Radio} from '@chakra-ui/react'
+import { Radio,RadioGroup} from '@chakra-ui/react'
 import Link from "next/link";
 import Router from "next/router"
 import {useSelector,useDispatch} from "react-redux";
@@ -12,6 +11,7 @@ import {updateuser} from "../store/userReducer";
 import { SimpleGrid } from '@chakra-ui/react'
 import {motion} from 'framer-motion';
 import { Highlight } from '@chakra-ui/react'
+import Client from "./components/client";
 
 const fadeInAnimationCard={
   initial: { opacity: 0, y: 20 },
@@ -19,9 +19,9 @@ const fadeInAnimationCard={
 };
 
 export default function Sign_Up(){
-  const [selectedValue, setSelectedValue] =useState('');
-  const [Client,setClient]=useState(true);
-  const [Worker,setWorker]=useState(false);
+  const [selectedValue, setSelectedValue] =useState('client');
+  // const [Client,setClient]=useState(true);
+  // const [Worker,setWorker]=useState(false);
   const dispatch=useDispatch();
   const {client,worker}=useSelector((state)=>state.user);
 
@@ -49,7 +49,9 @@ animate="animate"
         <h2><Highlight query='Client or Worker' styles={{ px: '1', py: '1', bg: 'orange.100', borderRadius:'5px' }}>Join as a Client or Worker</Highlight></h2>
             <div className={styles.cardHolder}>
               <div className={styles.card}>
-                        <Radio 
+<RadioGroup onChange={setSelectedValue} value={selectedValue} >
+<Radio
+                        defaultChecked 
                         colorScheme='orange'
                         size="lg"
                         onChange={(e)=>{handleChange(e)
@@ -61,11 +63,8 @@ animate="animate"
          
                         className={styles.client}
                         value="client"
-                      />
-                      <h5>I&apos;m a client looking to hire a worker</h5>
-              </div>
-                     <div className={styles.card}>
-            <Radio
+                      > <h5>I&apos;m a client looking to hire a worker</h5></Radio>
+                       <Radio
        onChange={(e)=>{handleChange(e)
        // setWorker(true)
         setClient(false)
@@ -75,11 +74,15 @@ animate="animate"
         value="worker"
         colorScheme='orange'
         size="lg"
-      />
-      <h5>I&apos;m a worker looking to find work</h5>
-            </div>
+      > <h5>I&apos;m a worker looking to find work</h5></Radio>
+</RadioGroup>
+                        
+                     
+              </div>
+                  
             </div>
         </motion.div>
+        {selectedValue==="client"? <><Client/></>:<></>}
 
       </SimpleGrid>
       
