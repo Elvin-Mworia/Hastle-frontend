@@ -6,7 +6,18 @@
     height:100vh;
     display:flex;
     flex-direction:column;
-
+    background-image: url('../public/hastle5.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin:center center;
+ h2{
+            font-size:2rem;
+            font-weight: bold;
+            align-self: center;
+            margin-top: .5rem;
+         
+        }
     .logo{
         position:absolute;
         top:0;
@@ -33,39 +44,72 @@
         justify-content:space-evenly;
         width:40vw;
         height:60vh;
-        margin:auto;
-        border: 1px solid $border-color;
+        margin-left:2rem;
+        margin-top:5rem;
         border-radius: 1rem;
-        
+        background-color: transparent;
+        justify-self: start;
+
+        align-self: start;
+        h2{
+            font-size:2rem;
+            font-weight: bold;
+         
+        }
         .cardHolder{
             display:flex;
             height:10rem;
             width:90%;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
 
 
             .card{
-                width:16vw;
+                width:90%;
                 height:90%;
-                background-color:white;
+                background-color:transparent!important;
                 border-radius:$radius;
                 margin:.5rem;
-h5{
-    text-align:center;
-    max-width: 80%;
-    margin-left:1rem;
-   
-}
-                
-              
+                padding:.5rem;
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                outline:none;
+            .radioGroup{
+            display: flex;
+            width: 100%;
+            height:100%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            .radioButton{
+                padding:.1rem;
+                height:3rem;
+                width:10rem;
+                margin-top:.5rem;
+                background-color: transparent;
+                margin-left: .5rem;
+                border-radius: $radius;
+                h5{
+                    text-align:center;
+                    margin-left:.5rem;
+                    color:black;
+                    font-family:$f-primary;
+                    font-weight: bold;
+                    font-size:1.5rem;
+                    align-self: center;
+                }
+            }
+            }
                 &:nth-of-type(1){
-                    background-color:  #D9D9D9;
+                    background-color: white;
                     .client{
-                        color:#F27400;
+                        color:black;
                     }
                     &:hover{
-                        outline:1px solid rgb(73, 71, 71);
+                         outline:1px solid #d87d28;
                     }
                 }
                 &:nth-of-type(2){
@@ -74,13 +118,10 @@ h5{
                         color:black;
                     }
                     &:hover{
-                        outline:1px solid #d87d28;;
+                        outline:1px solid #d87d28;
                     }
                 }
-            
-                
-                
-
+               
             }
         }
         button{

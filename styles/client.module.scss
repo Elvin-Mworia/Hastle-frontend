@@ -2,33 +2,14 @@
 .container{
     padding:0;
     margin:0;
-    width:100vw;
+    width:40vw;
     height:100vh;
     display:flex;
     flex-direction:column;
-
-    .logo{
-        position:absolute;
-        top:0;
-        left:0;
-        width: 100px;
-        height:100px;
-        display:flex;
-        h3{
-            
-                position:absolute;
-                left:10px;
-                color:white;
-                font-family:$logo;
-                font-style: normal;
-              font-weight: 400;
-              
-              
-        }
-    }
     .clientContainer{
         display:flex;
-        width:90vw;
+        flex-direction: column;
+        width:100%;
         height:80vh;
         margin:auto;
 

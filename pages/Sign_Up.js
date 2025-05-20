@@ -1,18 +1,36 @@
-
 import styles from '../styles/signup.module.scss'
 import Image from "next/image";
 //import * as React from 'react';
 import {useState}  from 'react';
-import Radio from '@mui/material/Radio';
+//import Radio from '@mui/material/Radio';
+import { Radio,RadioGroup} from '@chakra-ui/react'
 import Link from "next/link";
 import Router from "next/router"
 import {useSelector,useDispatch} from "react-redux";
 import {updateuser} from "../store/userReducer";
+import { SimpleGrid } from '@chakra-ui/react'
+import {motion} from 'framer-motion';
+import { Highlight } from '@chakra-ui/react'
+import Client from "./components/client";
+import Worker from "./components/worker";
+import { Button} from '@chakra-ui/react'
 
+const fadeInAnimationCard={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: .8, duration: 0.5, ease: "easeOut" } },
+};
+const fadeInAnimationH2={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: .5, duration: 0.5, ease: "easeOut" } },
+};
+const fadeInAnimationForm={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.3, duration: 0.5, ease: "easeIn" } },
+};
 export default function Sign_Up(){
-  const [selectedValue, setSelectedValue] =useState('');
-  const [Client,setClient]=useState(true);
-  const [Worker,setWorker]=useState(false);
+  const [selectedValue, setSelectedValue] =useState('client');
+  // const [Client,setClient]=useState(true);
+  // const [Worker,setWorker]=useState(false);
   const dispatch=useDispatch();
   const {client,worker}=useSelector((state)=>state.user);
 
@@ -31,57 +49,68 @@ export default function Sign_Up(){
     event.preventDefault();
   };
     return(<div className={styles.container}>
-      
-       <div className={styles.cardContainer}>
-        <h2>Join as a Client or Worker</h2>
-        
-        <div className={styles.cardHolder}>
-            <div className={styles.card}>
-            <Radio
-        checked={selectedValue === 'client'}
-        onChange={(e)=>{handleChange(e)
-   //setClient(true)
-   setWorker(false)   
-dispatch(updateuser({client:!client,worker:Worker}))
-
-setWorker(false)
-
-        
-        }}
-        className={styles.client}
-        value="client"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': 'Client' }}
-      />
-      <h5>I&apo;m a client looking to hire a worker</h5>
-            </div>
-            <div className={styles.card}>
-            <Radio
-        checked={selectedValue === 'worker'}
-      onChange={(e)=>{handleChange(e)
+  
+      <SimpleGrid columns={2} spacing={10} >
+        <motion.div
+        variants={fadeInAnimationCard}
+initial="initial"
+animate="animate"
+        className={styles.cardContainer}>
+            <div className={styles.cardHolder}>
+                  <motion.h2
+       variants={fadeInAnimationH2}
+       initial="initial"
+       animate="animate">
+  <Highlight query='Client or Expert' styles={{ px: '1', py: '1', bg: 'orange.100', borderRadius:'5px' }}>Join as a Client or Expert</Highlight>
+  </motion.h2>
+              <div className={styles.card}>
+<RadioGroup onChange={setSelectedValue} value={selectedValue} className={styles.radioGroup}> 
+<Button className={styles.radioButton}>
+                      <Radio
+                        defaultChecked 
+                        colorScheme='white'
+                        size="lg"
+                        onChange={(e)=>{handleChange(e)
+                        //setWorker(false)   
+                        dispatch(updateuser({client:!client,worker:Worker}))
+                        //setWorker(false)
+                        }}
+                          //setClient(true)
+         
+                        className={styles.client}
+                        value="client"
+                      > <h5>Hire</h5></Radio>
+                      </Button>
+                      <Button className={styles.radioButton}>
+                       <Radio
+       onChange={(e)=>{handleChange(e)
        // setWorker(true)
-        setClient(false)
-        dispatch(updateuser({client:!client,worker:!worker}))
-
-        
+       // setClient(false)
+        dispatch(updateuser({client:!client,worker:!worker}))  
         }}
         className={styles.worker}
         value="worker"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': 'Worker' }}
-      />
-      <h5>I&apos;m a worker looking to find work</h5>
+      
+        colorScheme='black'
+        size="lg"
+      > <h5>Find Work</h5></Radio>
+      </Button>
+</RadioGroup>
+                        
+                     
+              </div>
+                  
             </div>
-          
-
-        </div>
-        
-  <button onClick={submit}>Proceed</button>
-        
-        <h6>Already have an account,<Link href="/Login"><a>Log in</a></Link></h6>
-
-
-       </div>
-       
+        </motion.div>
+        <motion.div
+           variants={fadeInAnimationForm}
+           initial="initial"
+           animate="animate"
+         className='styles.cardContainer'>
+        {selectedValue==="client"? <><Client/></>:<><Worker/></>}
+</motion.div>
+      </SimpleGrid>
+      
+    
     </div>)
 }
