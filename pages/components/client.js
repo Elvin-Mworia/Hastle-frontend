@@ -2,7 +2,16 @@ import {useState} from "react";
 import styles from '../../styles/client.module.scss';
 import { basicSchema } from "../../utils/basicSchema";
 import axios from "axios";
+import {motion} from 'framer-motion';
 
+const fadeInAnimationForm={
+  initial: { opacity: 0, x: 20 },
+  animate: { opacity: 1, x: 0, transition: { delay: .8, duration: 0.3, ease: "easeIn" } },
+};
+const fadeInAnimationH2={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1, duration: 0.5, ease: "easeIn" } },
+};
 export default function Client(){
   const [firstname,setFirstName]=useState("");
   const [lastname,setLastName]=useState("");
@@ -25,7 +34,15 @@ export default function Client(){
   }
   
  return(
-    <>
+    
+    <motion.div variants={fadeInAnimationForm}
+initial="initial"
+animate="animate" className={styles.container}>
+
+    <div className={styles.clientContainer}>
+      <motion.h2 variants={fadeInAnimationH2}
+initial="initial"
+animate="animate">Client Sign Up</motion.h2>
        <form className={styles.inputWrapper} onSubmit={Submit}>
             <div className={styles.names}>
                 <div className={styles.soloname}>
@@ -87,7 +104,7 @@ export default function Client(){
                 (<p className={styles.errors}>{errors.confirmPassword}</p>)} */}
       <button type="submit" >Submit</button>
             </form>
- 
-    </>
+ </div>
+    </motion.div>
  )
 }
