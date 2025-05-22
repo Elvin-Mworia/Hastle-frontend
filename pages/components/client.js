@@ -65,25 +65,29 @@ animate="animate">Client Sign Up</motion.h2>
                 </div>
                 
             </div>
-          
+          <div className={styles.otherInputs}>
             <label for="email">Email</label>
                 <input type="email"
                 value={email}
               onChange={(e)=>{setEmail(e.target.value)}}
                  required
                 name="email"
-                />
-         
+                />  
+
+          </div>
+          
+         <div className={styles.otherInputs}>
             <label for="phone">Phone Number</label>
                 <input type="telephone"
                   value={phone}
                   onChange={(e)=>{setPhone(e.target.value)}}
                    required
                 name="phone"
-                />
+                /></div>
           
- 
-            <label for="password">Password</label>
+          
+          <div className={styles.otherInputs}>
+               <label for="password">Password</label>
                 <input type="password"
                   value={password}
                 onChange={(e)=>{setPassword(e.target.value)}}
@@ -91,15 +95,18 @@ animate="animate">Client Sign Up</motion.h2>
                 name="password"
 
                 />
+          </div>
          
-       
-            <label for="confirmpassword">Confirm Password</label>
+          <div className={styles.otherInputs}>
+               <label for="confirmpassword">Confirm Password</label>
                 <input type="password"
                   value={confirmPassword}
                      required
                  onChange={(e)=>{setconfirmPassword(e.target.value)}}
                   name="confirmpassword"
               />
+          </div>
+         
                 {/* {errors.confirmPassword && touched.confirmPassword &&
                 (<p className={styles.errors}>{errors.confirmPassword}</p>)} */}
       <button type="submit" >Submit</button>
