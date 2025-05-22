@@ -66,7 +66,7 @@ const  Submit=(e)=>{
                 </div>
                 
             </div>
-            <div className={styles.otherInputs}>
+            <div    className={styles.otherInputs}> 
           
             <label for="email">Email</label>
                 <input type="email"
