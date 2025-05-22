@@ -5,6 +5,7 @@ import Image from "next/image";
 import {useFormik} from 'formik';
 import styles from '../../styles/client.module.scss';
 import { basicSchema } from "../../utils/basicSchema";
+import { Input } from '@chakra-ui/react'
 
 const fadeInAnimationForm={
   initial: { opacity: 0, x: 20 },
@@ -35,7 +36,7 @@ const  Submit=(e)=>{
             className={styles.container}>
         
         <div className={styles.clientContainer}>
-        <motion.h2  s
+        <motion.h2  
         variants={fadeInAnimationH2}
         initial="initial"
         animate="animate">Expert Sign Up</motion.h2>
@@ -43,24 +44,29 @@ const  Submit=(e)=>{
             <div className={styles.names}>
                 <div className={styles.soloname}>
                 < label for="firstName">First Name</label>
-                <input type="text"
-                value={firstname}
-                onChange={(e)=>{setFirstName(e.target.value)}}
-                
-                name="firstName"
-
-                />
+            <Input
+        value={firstname}
+        focusBorderColor='lime'
+        color='gray.300'
+        onChange={(e)=>{setFirstName(e.target.value)}}
+        size='md'
+        variant='outline'
+      />
                 </div>
                 <div className={styles.soloname}>
-                <label for="secondName">Second Name</label>
-                <input type='text' value={lastname}
-                onChange={(e)=>{setLastName(e.target.value)}}
-              
-                name="secondName"
-                />
+               <label for="secondName">Second Name</label>
+                         <Input
+        value={lastname}
+        focusBorderColor='lime'
+        color='gray.300'
+        onChange={(e)=>{setLastName(e.target.value)}}
+        size='md'
+        variant='outline'
+      />
                 </div>
                 
             </div>
+            <div className={styles.otherInputs}>
           
             <label for="email">Email</label>
                 <input type="email"
@@ -69,7 +75,8 @@ const  Submit=(e)=>{
               
                 name="email"
                 />
-         
+         </div>
+        <div className={styles.otherInputs}>
             <label for="phone">Phone Number</label>
                 <input type="telephone"
                   value={phone}
@@ -77,8 +84,8 @@ const  Submit=(e)=>{
                 
                 name="phone"
                 />
-          
- 
+          </div>
+ <div className={styles.otherInputs}>
             <label for="password">Password</label>
                 <input type="password"
                   value={password}
@@ -87,14 +94,15 @@ const  Submit=(e)=>{
                 name="password"
 
                 />
-         
-       
+         </div>
+       <div className={styles.otherInputs}>
             <label for="confirmpassword">Confirm Password</label>
                 <input type="password"
                   value={confirmPassword}
                  onChange={(e)=>{setconfirmPassword(e.target.value)}}
                   name="confirmpassword"
               />
+              </div>
                 {/* {errors.confirmPassword && touched.confirmPassword &&
                 (<p className={styles.errors}>{errors.confirmPassword}</p>)} */}
       <button type="submit"  onSubmit={Submit}>Submit</button>

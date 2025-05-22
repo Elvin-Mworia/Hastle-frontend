@@ -51,11 +51,7 @@
         justify-self: start;
 
         align-self: start;
-        h2{
-            font-size:2rem;
-            font-weight: bold;
-         
-        }
+     
         .cardHolder{
             display:flex;
             height:10rem;
@@ -63,7 +59,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
+   h2{
+            font-size:2rem;
+            font-weight: bold;
+           
+         
+        }
 
             .card{
                 width:90%;
