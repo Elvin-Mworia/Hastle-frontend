@@ -27,8 +27,8 @@ justify-content: center;
 width:30vw;
 height:50vh;
 border-radius:20px;
-background-color:white;
-opacity:.9;
+background-color:$theme-color;
+opacity:1;
 box-shadow:
       1px 2px 2px 2px hsla(38.8deg 100% 50%/ 0.6),
       2px 4px 4px 4px hsl(38.8deg 100% 50%/ 0.6),
@@ -48,8 +48,9 @@ input{
     margin:.5rem auto;
     height:3rem;
     padding:auto 1rem;
+    background-color: azure;
     &:hover{
-        border: 1px solid black;
+        border: 1px solid lime;
     }
 }
 h6{
