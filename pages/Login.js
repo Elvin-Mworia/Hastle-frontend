@@ -107,7 +107,6 @@ async function handleSubmit(e){
     return(
         <>
      <div className={styles.container}>
-            <Image src={svg} alt="" className={styles.image_p} height="400" width="400"></Image>
             <div className={styles.loginContainer}>
                 <div className={styles.inputContainer}>
                 <h6>Email/Phone</h6>
