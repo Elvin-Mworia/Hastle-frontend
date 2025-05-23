@@ -10,6 +10,7 @@ import {useSelector,useDispatch} from "react-redux";
 import axios from "axios";
 import BasicModal from "./components/loginerror";
 import {updateuserinfo} from "../store/userInfoReducer"
+import { Input } from '@chakra-ui/react'
 
 export default function Login(){
 const dispatch=useDispatch();
@@ -110,12 +111,24 @@ async function handleSubmit(e){
             <div className={styles.loginContainer}>
                 <div className={styles.inputContainer}>
                 <h6>Email/Phone</h6>
-                <input placeholder="email/phone" type="text"
-                 onChange={(e)=>setEmail(e.target.value)}/>
+                   <Input
+        value={email}
+        onChange={(e)=>setEmail(e.target.value)}
+        placeholder="email/phone"
+        size='md'
+      />
+                {/* <input placeholder="email/phone" type="text"
+                 onChange={(e)=>setEmail(e.target.value)}/> */}
                 <h6>Password</h6>
-                <input placeholder="" type="password"
+                {/* <input placeholder="" type="password"
                 onChange={(e)=>setPassword(e.target.value)} 
-                />
+                /> */}
+                            <Input
+        value={password}
+        onChange={(e)=>setPassword(e.target.value)}
+        placeholder="Password"
+        size='md'
+      />
                 </div>
                 <div className={styles.submitContainer}>
                 <button type="submit" onClick={()=>{handleSubmit()}}>Login</button>
