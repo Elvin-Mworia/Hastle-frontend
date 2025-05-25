@@ -12,24 +12,25 @@ import {useSelector} from "react-redux"
 
 export async function getServerSideProps() {
   try {
-    const { data } = await apollo.query({
-      query: gql`
-        query Posts {
-          posts {
-            jobdescription,
-            scope,
-            title,
-            amount,
-            id,
-            numofworkers
-          }
-        }
-      `
-    });
+    // const { data } = await apollo.query({
+    //   query: gql`
+    //     query Posts {
+    //       posts {
+    //         jobdescription,
+    //         scope,
+    //         title,
+    //         amount,
+    //         id,
+    //         numofworkers
+    //       }
+    //     }
+    //   `
+    // });
     
     return {
       props: {
-        jobs: data?.posts || []
+        // jobs: data?.posts || []
+          jobs: []
       }
     };
   } catch (error) {
