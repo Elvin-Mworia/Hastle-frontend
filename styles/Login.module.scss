@@ -7,7 +7,7 @@ height:100vh;
 display:flex;
 align-items:center;
 justify-content: center;
-background-image:url("../public/loginback.png");
+background-image:url("../public/hastle6.png");
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center center;
@@ -24,12 +24,17 @@ position:relative;
 display:flex;
 flex-direction:column;
 justify-content: center;
-width:45vw;
-height:70vh;
+width:30vw;
+height:50vh;
 border-radius:20px;
-border: 1px solid #F27400;
-background-color:white;
-opacity:.9;
+background-color:$theme-color;
+opacity:1;
+box-shadow:
+      1px 2px 2px 2px hsla(38.8deg 100% 50%/ 0.6),
+      2px 4px 4px 4px hsl(38.8deg 100% 50%/ 0.6),
+      4px 8px 8px 8px hsl(38.8deg 100% 50%/ 0.6),
+      8px 16px 16px 16px hsl(38.8deg 100% 50%/ 0.6),
+      16px 32px 32px 32px hsl(38.8deg 100% 50%/ 0.6);
 .inputContainer{
     top:0;
     display:flex;
@@ -43,8 +48,10 @@ input{
     margin:.5rem auto;
     height:3rem;
     padding:auto 1rem;
+    background-color: azure;
+    color:black;
     &:hover{
-        border: 1px solid black;
+        border: 1px solid lime;
     }
 }
 h6{
