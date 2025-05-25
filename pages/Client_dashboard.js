@@ -106,7 +106,7 @@ useEffect(()=>{
 
     <div className={styles.dashboardLeftwrapper}>
     <div className={styles.heading}> 
-    <span>Your Dashboard</span><br/>
+    <span>Client Dashboard:</span><br/>
     <span>{name}</span><br/>
     <span>Available Tokens:{token}</span>
     </div>
