@@ -5,8 +5,10 @@
     height:100vh;
     margin:0;
     padding:0;
+    flex-direction: column;
+    padding-top:1rem;
     .dashboard{
-        top:10vh;
+        top:1vh;
         position: relative;
         width:80vw;
         margin:auto;
