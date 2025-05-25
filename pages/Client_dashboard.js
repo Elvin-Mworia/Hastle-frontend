@@ -27,22 +27,22 @@ import store from "../store/store"
  
 export async function getServerSideProps(){
   try {
-    const post=gql`
-    query Posts($input:userInput!) {
-      jobs(input:$input) {
-        jobdescription,
-        title,
-        status
-      }
-    }
-    `
-    const {data}= await apollo.query({
-      query:post,
-      variables:{input:{id:"636503c54c59cd655ab0db94"}}
-    });
+    // const post=gql`
+    // query Posts($input:userInput!) {
+    //   jobs(input:$input) {
+    //     jobdescription,
+    //     title,
+    //     status
+    //   }
+    // }
+    // `
+    // const {data}= await apollo.query({
+    //   query:post,
+    //   variables:{input:{id:"636503c54c59cd655ab0db94"}}
+    // });
     
     return {
-      props:{data}
+      props:{data}|| []
     };
   } catch (error) {
     console.error("Error fetching jobs data:", error);
@@ -98,8 +98,9 @@ useEffect(()=>{
 
 
     return(
-    <><Navbar/>
+    <>
     <div className={styles.container}>
+      <Navbar/>
     <div  className={styles.dashboard}>
     <div className={styles.dashboardLeft}>
 
