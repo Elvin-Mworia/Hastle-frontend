@@ -18,6 +18,7 @@ import axios from "axios";
 import OutlinedCard from "./components/CardClientdash";
 import apollo from "../utils/apolloclient"
 import store from "../store/store"
+import ClientStepper from "./components/step";
 // import 'react-dropdown/style.css';
 
 // const DynamicHeader = dynamic(() => import(Dropdown from 'react-dropdown'), {
@@ -135,43 +136,17 @@ useEffect(()=>{
 
     </div>
 
-    <div className={styles.thirdSection}>
-    <h4>How to link up with a worker</h4><br/>
-    <hr/>
-    <h6>Steps</h6>
-    <div className={styles.steps}>
-    <Image className={styles.image} src={svg1} height={100} width={100} alt="Step 1 - Post a job" />
-    <div className={styles.stepContent}>
-    <h4>1.Post a Job in the application.
-  </h4>
-  <p>Provide enough detail for great workers to figure out if the  work is right for them.</p>
-  <p>(You can always edit your post)</p>
-    </div>
     
     </div>
-    <div className={styles.steps}><Image className={styles.image} src={svg2} height={100} width={100} alt="Step 2" />
-     <div className={styles.stepContent}>
-      <h4>2.Get a Proposal/Request from a worker/talent.
-  </h4>
-  <p>A strong working relationship starts with open communication. Here&apos;s your chance to ask about experience, set expectations for what you need, and discuss terms of the work. </p>
-  </div>
-    
-    </div>
-    <div className={styles.steps}><Image className={styles.image} src={svg3} height={100} width={100} alt="Step 3" />
-     <div className={styles.stepContent}>
-      <h4>3.Start working Together.
-  </h4>
-  <p>Once you both agree on terms, collaborate with simple and secure tools like our chat system, the worker is sent the location of your task premises. Exchanging your contacts is upto you but it&apos;s encouraged for flexible communication. </p>
-  </div>
-    </div>
-    <div className={styles.steps}><Image className={styles.image} src={svg4} height={100} width={100} alt="Step 4" />
-     <div className={styles.stepContent}>
-      <h4>4.Pay the worker on the agreed terms</h4>
-      <p>Once the worker has finished the job and you are satisfied pay them on the agreed amount. Failure to which they have a right to report you on the plartform and be banned.</p>
-     </div></div>
 
     </div>
-    </div>
+    <div className={styles.dashboardMiddle}>
+<div className={styles.thirdSection}>
+    <h4>How to link up with a worker</h4><br/>
+    <hr/>
+    <ClientStepper/>
+
+    </div> 
 
     </div>
      <div className={styles.dashboardRight}>
