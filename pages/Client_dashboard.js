@@ -109,7 +109,7 @@ useEffect(()=>{
     <div className={styles.heading}> 
     <span>Client Dashboard:</span><br/>
     <span>{name}</span><br/>
-    <span>Available Tokens:{token}</span>
+   
     </div>
 
     <div className={styles.middle}>
@@ -125,7 +125,7 @@ useEffect(()=>{
     })
     :
      <div className={styles.noJobs}>
-       <Image src={svg} height={200} width={200} alt="No jobs illustration" />
+       <Image src={svg} height={50} width={50} alt="No jobs illustration" />
        <h4>No active jobs posts at the moment</h4>
        <span>Post a job and let talent come to you</span><br/>
        <Link href="/Post_Job"><a>Add Job</a></Link>
@@ -150,7 +150,9 @@ useEffect(()=>{
 
     </div>
      <div className={styles.dashboardRight}>
+       <span>Available Tokens:{token}</span>
      <div >
+      
       <button><Link href="/Buy_Hastles"><a>Buy Tokens</a></Link></button><br/>
      <button>Edit you Job Post</button><br/>
      <button>Completed Tasks</button></div>
