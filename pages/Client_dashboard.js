@@ -12,12 +12,25 @@ import axios from "axios";
 import OutlinedCard from "./components/CardClientdash";
 import store from "../store/store"
 import ClientStepper from "./components/step";
-import { Button} from '@chakra-ui/react'
+import { Button} from '@chakra-ui/react';
+import {motion} from 'framer-motion';
 // import 'react-dropdown/style.css';
 
 // const DynamicHeader = dynamic(() => import(Dropdown from 'react-dropdown'), {
 //   suspense: true,
 // })
+const fadeInAnimationLeft = {
+    initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: .8, duration: 0.5, ease: "easeOut" } },
+}
+const fadeInAnimationMiddle = {
+    initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.1, duration: 0.5, ease: "easeInOut" } },
+}
+const fadeInAnimationRight = {
+    initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.3, duration: 0.5, ease: "easeInOut" } },
+}
 
  
 export async function getServerSideProps(){
@@ -97,7 +110,11 @@ useEffect(()=>{
     <div className={styles.container}>
       <Navbar/>
     <div  className={styles.dashboard}>
-    <div className={styles.dashboardLeft}>
+    <motion.div 
+    variants={fadeInAnimationLeft}
+initial="initial"
+animate="animate"
+    className={styles.dashboardLeft}>
 
     <div className={styles.dashboardLeftwrapper}>
     <div className={styles.heading}> 
@@ -124,9 +141,6 @@ useEffect(()=>{
       <Button><Link href="/Post_Job"><a>Post Work</a></Link></Button> 
      </div>
     }
-    
-   
-
     </div>
     <div className={styles.bottom}>
       <span><h1>Active/Past Works</h1></span><hr/>
@@ -145,8 +159,12 @@ useEffect(()=>{
     }
     </div>   
           </div>
-                 </div>
-    <div className={styles.dashboardMiddle}>
+                 </motion.div>
+    <motion.div
+        variants={fadeInAnimationMiddle}
+initial="initial"
+animate="animate"
+     className={styles.dashboardMiddle}>
 <div className={styles.thirdSection}>
     <h4>How to link up with a worker</h4><br/>
     <hr/>
@@ -154,8 +172,11 @@ useEffect(()=>{
 
     </div> 
 
-    </div>
-     <div className={styles.dashboardRight}>
+    </motion.div>
+     <motion.div 
+         variants={fadeInAnimationRight}
+initial="initial"
+animate="animate"className={styles.dashboardRight}>
        <span>Available Tokens:{token}</span>
      <div className={styles.rightWrapper}>
       
@@ -164,7 +185,7 @@ useEffect(()=>{
      <Button>Completed Tasks</Button></div>
    
 
-    </div>
+    </motion.div>
     </div>
 
     </div>
