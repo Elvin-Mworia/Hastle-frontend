@@ -5,20 +5,14 @@ import Link from "next/link";
 import dynamic from 'next/dynamic'
 import Image from "next/image";
 import svg from "../public/image5.svg";
-import svg1 from "../public/image6.svg";
-import svg2 from "../public/image7.svg";
-import svg3 from "../public/image8.svg";
-import svg4 from "../public/image9.svg";
 import Navbar from "./components/navbar";
 import {useSelector} from "react-redux"
-import {updateuserinfo} from "../store/userInfoReducer"
-import { useQuery,gql } from "@apollo/client";
 import { useEffect } from "react";
 import axios from "axios";
 import OutlinedCard from "./components/CardClientdash";
-import apollo from "../utils/apolloclient"
 import store from "../store/store"
 import ClientStepper from "./components/step";
+import { Button} from '@chakra-ui/react'
 // import 'react-dropdown/style.css';
 
 // const DynamicHeader = dynamic(() => import(Dropdown from 'react-dropdown'), {
@@ -113,8 +107,8 @@ useEffect(()=>{
     </div>
 
     <div className={styles.middle}>
-    <h3>Your Postings</h3><br/>
-    <hr/>
+
+ 
     {data.jobs && data.jobs.length > 0 ?
     data.jobs.map((post,key)=>{
       return(
@@ -124,22 +118,34 @@ useEffect(()=>{
       )
     })
     :
-     <div className={styles.noJobs}>
+     <div className={styles.middle}>
        <Image src={svg} height={50} width={50} alt="No jobs illustration" />
-       <h4>No active jobs posts at the moment</h4>
-       <span>Post a job and let talent come to you</span><br/>
-       <Link href="/Post_Job"><a>Add Job</a></Link>
+      
+      <Button><Link href="/Post_Job"><a>Post Work</a></Link></Button> 
      </div>
     }
     
    
 
     </div>
-
-    
-    </div>
-
-    </div>
+    <div className={styles.bottom}>
+      <span><h1>Active/Past Works</h1></span><hr/>
+      <br/>
+ {data.jobs && data.jobs.length > 0 ?
+    data.jobs.map((post,key)=>{
+      return(
+        <React.Fragment key={key}>
+        <OutlinedCard title={post.title} jobdescription={post.jobdescription}/>
+        </React.Fragment>
+      )
+    })
+    :
+       <p>No active/past work posts at the moment,
+        <br/>post work</p>
+    }
+    </div>   
+          </div>
+                 </div>
     <div className={styles.dashboardMiddle}>
 <div className={styles.thirdSection}>
     <h4>How to link up with a worker</h4><br/>
@@ -151,11 +157,11 @@ useEffect(()=>{
     </div>
      <div className={styles.dashboardRight}>
        <span>Available Tokens:{token}</span>
-     <div >
+     <div className={styles.rightWrapper}>
       
-      <button><Link href="/Buy_Hastles"><a>Buy Tokens</a></Link></button><br/>
-     <button>Edit you Job Post</button><br/>
-     <button>Completed Tasks</button></div>
+      <Button><Link href="/Buy_Hastles"><a>Buy Tokens</a></Link></Button><br/>
+     <Button>Edit you Job Post</Button><br/>
+     <Button>Completed Tasks</Button></div>
    
 
     </div>
