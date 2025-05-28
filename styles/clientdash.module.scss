@@ -7,7 +7,7 @@
     padding:0;
     flex-direction: column;
     padding-top:1rem;
-    background-color:azure ;
+    background-color:black;
     .dashboard{
         position: relative;
         width:100%;
@@ -176,7 +176,14 @@ color:$theme-color;
             flex-direction: column;
             padding-right:3vw;
             
-          
+          span{
+            font-size:1rem;
+            font-family: $f-primary;
+            letter-spacing: .1rem;
+            color: $theme-color;
+            font-weight: bold;
+            align-self: center;
+          }
           
           div{
             position:relative;
