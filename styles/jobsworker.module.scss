@@ -5,24 +5,35 @@
 font-family: $f-primary;
     display:flex;
     flex-direction: column;
-    .searchbar{
+    background-color:$theme-background-color;
+    .searchgroup{
         position: relative;
-        width:40vw;
-        height: 3vh;
-        border-radius:4rem;
-        
-      margin:5rem auto 1rem auto;
+        width:20vw;
+        height: 2.5rem;
+        border-radius:.3rem;
+        margin:.5rem auto 1rem auto;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .searchbar{
         cursor:pointer;
-       background-color: rgb(196, 188, 188);
-           
-            color:white;
-           padding:1rem;
-            border: none;
-            &:focus{
-                outline:1px solid $theme-color;
-               
-            }
-        
+        background-color: white;
+        color: $theme_color;
+        padding:.5rem;
+        border: none;
+        width:80%;
+    
+    }
+          .searchIcon{
+      color:$theme_color !important;
+      z-index: 1000;
+
+      &:hover{
+        scale:1.1;
+      }
+    
+    }
     }
 .bodyContainer{
     display:grid;
@@ -32,11 +43,10 @@ font-family: $f-primary;
   height:84vh;
   position:relative;
  padding:1rem;
-
+ border:1px solid $theme-color;
     .contentHolder{
         grid-area:leftside;
-       
-   
+        border:1px solid $theme-color;
         width:100%;
 
 .header{
