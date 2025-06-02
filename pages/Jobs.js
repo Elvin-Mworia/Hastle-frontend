@@ -1,7 +1,7 @@
 import styles from "../styles/jobsworker.module.scss"
 import {useState} from "react";
 import React from 'react';
-import Avatar from '@mui/material/Avatar';
+import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 import OutlinedCard from "./components/Card";
 import Navbar from "./components/navbar";
 import apollo from "../utils/apolloclient.js"
@@ -12,6 +12,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa";
 import { Stack,VStack} from '@chakra-ui/react'
 import { Select } from '@chakra-ui/react'
+import {motion} from "framer-motion";
 
 // export async function getServerSideProps() {
 //   try {
@@ -45,6 +46,14 @@ import { Select } from '@chakra-ui/react'
 //     };
 //   }
 // }
+const fadeInAnimationContent={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1, duration: 0.5, ease: "easeOut" } },
+};
+const fadeInAnimationAside={
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { delay: 1.2, duration: 0.5, ease: "easeOut" } },
+};
 const jobs=[{title: "Error fetching jobs", jobdescription: "An error occurred while fetching jobs.",id:1},{title: "Error fetching jobs", jobdescription: "An error occurred while fetching jobs.",id:1},{title: "Error fetching jobs", jobdescription: "An error occurred while fetching jobs.",id:1},{title: "Error fetching jobs", jobdescription: "An error occurred while fetching jobs.",id:1},{title: "Error fetching jobs", jobdescription: "An error occurred while fetching jobs.",id:1},{title: "Error fetching jobs", jobdescription: "An error occurred while fetching jobs.",id:1},{title: "Error fetching jobs", jobdescription: "An error occurred while fetching jobs.",id:1}]
 export default function Jobs(){
 const[content,setContent]=useState("");
@@ -60,7 +69,11 @@ const handleChange=(e)=>{
      
         <div className={styles.bodyContainer}>
             
-          <div className={styles.contentHolder}>
+          <motion.div    
+                variants={fadeInAnimationContent}
+                initial="initial"
+                animate="animate" 
+                className={styles.contentHolder}>
             <Stack direction='row' spacing={4} align='center' className={styles.header}>
              
             <InputGroup className={styles.searchgroup}>
@@ -95,7 +108,37 @@ const handleChange=(e)=>{
               />
             ))}
               </VStack>
-          </div>
+          </motion.div>
+          <motion.aside 
+           variants={fadeInAnimationAside}
+           initial="initial"
+           animate="animate"
+          className={styles.workerDetails}>
+              <div className={styles.workerinfo}>
+                <Stack direction='row'> 
+                  <Avatar name='Elvin Mworia' src=''/>  
+                </Stack>
+                <h5>Elvin Mworia</h5>{/* comes from the server     */}
+                {/* fetch token balance from server */}
+                <span>Available token:{token}</span>
+              </div>
+              <div className={styles.workerjobs}>
+              <h5>My Job Categories</h5>
+                {/* to be fetched from the server */}
+                <span>Labour Work</span>
+                <span>Plumbing</span>
+                <span>Capentry</span>
+              </div>
+              <VStack className={styles.workerjobsApplied}>
+              <h5>Jobs Applied</h5>
+              <VStack className={styles.jobsApplied}>
+
+              </VStack>
+              {/* to be fetched from the server */}
+              
+              </VStack>
+
+          </motion.aside>
         </div>
 
     </div>
