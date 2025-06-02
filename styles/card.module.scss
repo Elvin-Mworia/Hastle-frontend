@@ -1,5 +1,9 @@
 @import 'global';
 .card{
+    position:relative;
+    width:100%;
+    min-width:60%;
+    min-height: 14rem;
     &:hover{
         border:1px solid $theme-color;
     }
