@@ -91,18 +91,31 @@ font-family: $f-primary;
         .workerinfo{
             height:11rem;
             width:70%;
-            background-color:antiquewhite;
+            background-color:white;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding:2rem;
             border-radius: $radius;
             margin:1rem;
+            h5{
+                font-size: 1.5rem;
+                color:$theme_color;
+                text-decoration: underline;
+                margin-bottom: .5rem;
+            }
+            span{
+                font-size:1rem;
+                color:$theme_color;
+                line-height:1.2rem;
+                font-weight: 800;
+                margin-bottom:.1rem;
+            }
         }
          .workerjobs{
             height:8rem;
             width:70%;
-            background-color:antiquewhite;
+            background-color:white;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -110,10 +123,12 @@ font-family: $f-primary;
             padding:2rem;
             border-radius: $radius;
             margin:1rem;
+            color:$theme_color;
             
             h5{
                 text-decoration: underline;
-                margin-bottom: .5rem;;
+                margin-bottom: .5rem;
+               
                
             }
             span{
@@ -121,6 +136,24 @@ font-family: $f-primary;
                 font-weight: 400;
                 margin-bottom:.1rem;
                 
+            }
+        }
+        .workerjobsApplied{
+            height:60%;
+            background-color: white;
+            width:70%;
+            border-radius: 1rem;
+            h5{
+                margin-bottom: .5rem;
+                color:$theme_color;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+            .jobsApplied{
+                height:85%;
+                width:90%;
+                overflow-y: scroll;
+                border:1px solid $theme_color;
             }
         }
         
