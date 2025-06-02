@@ -3,7 +3,6 @@ import Link from "next/link"
 import { Card, CardHeader, CardBody, CardFooter,Button,Stack,Text,Image,Heading } from '@chakra-ui/react'
 import styles from "../../styles/card.module.scss";
 
-
 export default function OutlinedCard({title,jobdescription,id }) {
   return (
 <Card
