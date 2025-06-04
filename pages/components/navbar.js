@@ -23,6 +23,7 @@ export default function Navbar(){
   useEffect(()=>{},[loginStatus]);
     return(
         <>
+       <div className={styles.container}>
           <div className={styles.navbar}>
       
       <motion.div
@@ -87,6 +88,7 @@ export default function Navbar(){
        
       
          </motion.div>
+      </div>
       </div>
         </>
     )
