@@ -16,8 +16,11 @@ font-family: $f-primary;
     min-height: 80vh;
     position:relative;
     padding:.5rem;
+    border:1px solid $theme_color;
+    overflow: hidden;
 
     .contentHolder{
+        position:relative;
         grid-area:leftside;
         width:100%;
         display:flex;
@@ -67,6 +70,7 @@ font-family: $f-primary;
     }
             }
         .jobs{
+            position:relative;
             width:95%;
             max-height:90% !important;
             min-height:88%;
