@@ -13,7 +13,7 @@ import { FaFilter } from "react-icons/fa";
 import { Stack,VStack} from '@chakra-ui/react'
 import { Select } from '@chakra-ui/react'
 import {motion} from "framer-motion";
-
+import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 // export async function getServerSideProps() {
 //   try {
 //     // const { data } = await apollo.query({
