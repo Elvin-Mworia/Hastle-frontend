@@ -16,7 +16,6 @@ font-family: $f-primary;
     min-height: 80vh;
     position:relative;
     padding:.5rem;
-    border:1px solid $theme_color;
     overflow: hidden;
 
     .contentHolder{
@@ -86,11 +85,12 @@ font-family: $f-primary;
     .workerDetails{
         grid-area: rightside;
         width:100%;
-        height:80vh;
-        
+        height:87vh;
+        background-color: white;
         display:flex;
         flex-direction:column;
         align-items: center;
+        border-radius: 1rem;
         
         .workerinfo{
             height:11rem;
@@ -114,6 +114,7 @@ font-family: $f-primary;
                 line-height:1.2rem;
                 font-weight: 800;
                 margin-bottom:.1rem;
+               
             }
         }
          .workerjobs{
@@ -132,13 +133,16 @@ font-family: $f-primary;
             h5{
                 text-decoration: underline;
                 margin-bottom: .5rem;
-               
+                align-self: flex-start;
+                margin-left:1.2rem;
                
             }
             span{
                 line-height:1.2rem;
                 font-weight: 400;
                 margin-bottom:.1rem;
+                align-self: flex-start;
+                margin-left: 1.2rem;
                 
             }
         }
@@ -147,17 +151,22 @@ font-family: $f-primary;
             background-color: white;
             width:70%;
             border-radius: 1rem;
+            margin-bottom: .5rem;
             h5{
                 margin-bottom: .5rem;
                 color:$theme_color;
                 font-size: 1.2rem;
                 font-weight: bold;
+                align-self: center;
             }
             .jobsApplied{
                 height:85%;
                 width:90%;
                 overflow-y: scroll;
                 border:1px solid $theme_color;
+                background-color: azure;
+                border-radius: 1rem;
+               
             }
         }
         
