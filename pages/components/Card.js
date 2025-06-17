@@ -1,54 +1,38 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Link from "next/link"
-import Cardelem from "./cardelem";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
-const cardSX = {
-  "&:hover": {
-    borderColor: "#F27400",
-  },
-};
-
-// const card =(title,jobdescription)=> (
-//   <React.Fragment>
-//     <CardContent>
-      
-//       <Typography variant="h5" component="div">
-//     {title}
-//       </Typography>
-     
-//       <Typography variant="body2">
-//       {jobdescription}
-    
-//       </Typography>
-//     </CardContent>
-//     <CardActions >
-//       <Button size="small" sx={{color:'#F27400',fontWeight:'bold'}}><Link href="/Apply"><a>Apply</a></Link></Button>
-//       <Button size="small" sx={{color:'#000000',fontWeight:'bold'}}>Save</Button>
-
-//     </CardActions>
-//   </React.Fragment>
-// );
+import { Card, CardHeader, CardBody, CardFooter,Button,Stack,Text,Image,Heading } from '@chakra-ui/react'
+import styles from "../../styles/card.module.scss";
 
 export default function OutlinedCard({title,jobdescription,id }) {
   return (
-    <Box sx={{ minWidth: 275,cardSX}}>
-      <Card variant="outlined" 
-      sx={{background:'#E1CECE',margin:'.3rem',borderRadius:'.5rem'}}
-      ><Cardelem title={title} jobdescription={jobdescription} id={id}/></Card>
-    </Box>
+<Card
+  direction={{ base: 'column', sm: 'row' }}
+  overflow='hidden'
+  variant='outline'
+  className={styles.card}
+>
+  <Image
+    objectFit='cover'
+    maxW={{ base: '100%', sm: '200px' }}
+    src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
+    alt='Caffe Latte'
+  />
+
+  <Stack>
+    <CardBody>
+      <Heading size='md'>{title}</Heading>
+
+      <Text py='2'>
+       {jobdescription}
+      </Text>
+    </CardBody>
+
+    <CardFooter>
+      <Button variant='solid' colorScheme='blue'>
+        Apply
+      </Button>
+    </CardFooter>
+  </Stack>
+</Card>
   );
 }
