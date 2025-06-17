@@ -10,6 +10,7 @@ import {useSelector,useDispatch} from "react-redux";
 import axios from "axios";
 import BasicModal from "./components/loginerror";
 import {updateuserinfo} from "../store/userInfoReducer"
+import { Input } from '@chakra-ui/react'
 
 export default function Login(){
 const dispatch=useDispatch();
@@ -35,16 +36,17 @@ mutation Login($input: loginInput!) {
 
 async function handleSubmit(e){
  
-    axios.post("http://localhost:3005/Auth/login",{email,password}).then((res,err)=>{
-                console.log(res.data.status)
+    axios.post("http://localhost:5001/auth/login",{email,password}).then((res,err)=>{
+              
                  console.log(res.status)
+                 console.log(res);
                  try{
                 
-                if(res.data.status==="200"){
+                if(res.status===200){
                     setLoginfailed(false);
                       dispatch(updateLoginState({loginStatus:!loginStatus}))
-                      dispatch(updateuserinfo({name:res.data.name,email:res.data.email,id:res.data.id,token:res.data.token,client:res.data.client,worker:res.data.worker}))
-                                 if(res.data.client==true){
+                      dispatch(updateuserinfo({name:res.data.user.firstName+" "+res.data.user.lastName,email:res.data.user.email,id:res.data.user._id,token:res.data.user.tokenAmount,firstName:res.data.user.firstName,lastName:res.data.user.lastName,userCategory:res.data.user.userCategory}))
+                                 if(res.data.user.userCategory==="employer"){
                                         Router.push("/Client_dashboard");
                                     }else{
                                         Router.push("/Jobs");   
@@ -60,10 +62,10 @@ async function handleSubmit(e){
 
                 }).catch(
                     (e)=>{
-                        console.log(e.response.data.message)
-                        setMessage(e.response.data.message);
+                        console.log(e.message)
+                        setMessage(e.message);
                         setLoginfailed(true);
-              alert(e.response.data.message);
+              alert(e.message);
             
                 
               
@@ -107,16 +109,27 @@ async function handleSubmit(e){
     return(
         <>
      <div className={styles.container}>
-            <Image src={svg} alt="" className={styles.image_p} height="400" width="400"></Image>
             <div className={styles.loginContainer}>
                 <div className={styles.inputContainer}>
                 <h6>Email/Phone</h6>
-                <input placeholder="email/phone" type="text"
-                 onChange={(e)=>setEmail(e.target.value)}/>
+                   <Input
+        value={email}
+        onChange={(e)=>setEmail(e.target.value)}
+        placeholder="email/phone"
+        size='md'
+      />
+                {/* <input placeholder="email/phone" type="text"
+                 onChange={(e)=>setEmail(e.target.value)}/> */}
                 <h6>Password</h6>
-                <input placeholder="" type="password"
+                {/* <input placeholder="" type="password"
                 onChange={(e)=>setPassword(e.target.value)} 
-                />
+                /> */}
+                            <Input
+        value={password}
+        onChange={(e)=>setPassword(e.target.value)}
+        placeholder="Password"
+        size='md'
+      />
                 </div>
                 <div className={styles.submitContainer}>
                 <button type="submit" onClick={()=>{handleSubmit()}}>Login</button>

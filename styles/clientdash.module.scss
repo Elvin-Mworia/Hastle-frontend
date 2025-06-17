@@ -5,43 +5,104 @@
     height:100vh;
     margin:0;
     padding:0;
+    flex-direction: column;
+    padding-top:1rem;
+    background-color:black;
     .dashboard{
-        top:10vh;
         position: relative;
-        width:80vw;
-        margin:auto;
-        height:90vh;
+        width:100%;
+        height:100%;
+        padding-left:2rem;
         display:grid;
-        grid-template-columns: 3fr 1fr;
-        grid-template-areas: "dashboardleft dashboardleft dashboardleft  dashboardright" ;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: "dashboardleft  dashboardmiddle dashboardmiddle  dashboardright" ;
         .dashboardLeft{
             grid-area:dashboardleft;
+            position:relative;
+            height: 90%;
             display:flex;
             flex-direction:column;
             flex-shrink:5;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top:2rem;
             .dashboardLeftwrapper{
-                width:40vw;
+                position:relative;
+                width:35vw;
                 display:flex;
                 flex-direction:column;
-                height:100%; 
+                height:90%; 
                 align-items: flex-start;
+                justify-content: flex-start;
+                padding:1rem;
                 .heading{
-height:10vh;
+
 width:20vw;
 display:block;
 margin-bottom: 1rem;
 span{
-    font-size:.8rem;
+    font-size:1rem;
     font-family: $f-primary;
-    letter-spacing: .2rem;
+    letter-spacing: .1rem;
+    color: $theme-color;
+    font-weight: bold;
 }
-
-
+                
+                }
+                //first section left side of grid
+                .firstSection{
+                    width:100%;
+                    height:100%;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:flex-start;
+                    margin-bottom:.5rem;
+                    h2{
+                        font-size:1.2rem;
+                        color:$theme-color;
+                        font-weight:bold;
+                        margin-bottom:.5rem;
+                    }
+                    hr{
+                        width:100%;
+                        border:none;
+                        border-top:1px solid $theme-color;
+                        margin-bottom:.5rem;
+                    }
+                }
+                //second section left side of grid
+                .secondSection{
+                    width:100%;
+                    height:100%;
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:flex-start;
+}
+                }
+                .middle{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width:100%;
+                    padding:.1rem;
+                       button{
+               background-color:$theme-color;
+                height:2.5rem;
+                border-radius:.5rem;
+                margin:.5rem;
+                padding:.5rem;
+             font-size: .8rem;
+                a{
+                    font-weight:bold;
 
                 }
+            }
+                }
                 //middle section left side of grid
-                .middle{
-                    height:45vh;
+                .bottom{
+                  background-color: black;
                     width:100%;
                     border-radius:$radius;
                     border:1px solid $theme-color;
@@ -49,15 +110,36 @@ span{
                     flex-direction:column;
                     align-items: center;
                     margin-bottom:.5rem;
+                    padding: .5rem;
+                    min-height: 70%;
+                    hr{
+                        color:white;
+                        width:100%;
+                    }
+      
                     h3{
                         font-size:1rem;
                         line-height:1.1rem;
                         margin:.5rem auto .5rem .5rem;
                         
                     }
-                    hr{
-color:$theme-color;
+                    h4,h1{
+                        font-size:.8rem;
+                        margin:0;
+                        color:$theme-color;
+                        font-weight:bold;
+                        text-align: justify;
                     }
+                    p{
+                         font-size:.8rem;
+                        margin:0;
+                        color:$theme-color;
+                        font-weight:normal;
+                        font-family:"Poppins";
+                        text-align: justify;
+
+                    }
+            
                     a{
                         width:10rem;
                         border-radius:2rem;
@@ -67,23 +149,37 @@ color:$theme-color;
                         font-weight:bold;
                         color:white;
                         padding:auto;
-                    }
-                 
-
-
+                    }        
                 }
-                .thirdSection{
-                    width:100%;
-                    height:90vh;
+           }
+        }
+        .dashboardMiddle{
+            grid-area:dashboardmiddle;
+            position:relative;
+            height: 100%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content: flex-start;
+            flex-shrink:5;
+            width: 40vw;
+            padding:1rem;
+               .thirdSection{
+                    width:85%;
+                   height:95%;
                     border:1px solid $theme-color;
                     border-radius:$radius;
-                    background-color:#D9D9D9;
+                    background-color:black;
                     padding:1rem;
                     margin-top:1rem;
                     h4{
                         font-size:1rem;
                         margin-bottom:0;
-                        margin-top:.5rem;
+                        margin-top:.2rem;
+                        text-align: center;
+                        color:$theme-color;
+                        font-weight: bold;
+    
                     }
                     hr{
                         margin-top:0;
@@ -93,12 +189,15 @@ color:$theme-color;
                         font-weight:bold;
                         margin-bottom:0;
                     }
+                     .stepIndicator{
+                            border: none;
+                        }
                     .steps{
                         width:100%;
                         display:flex;
-                        height:18vh;
+                        height:90%;
                         margin-top:0;
-                        margin-bottom:.5rem;
+                        margin-bottom:.1rem;
                         justify-content: space-evenly;
                         flex-shrink: 5;
                         &:nth-child(1){
@@ -106,13 +205,15 @@ color:$theme-color;
 
                         }
                        
+                       
                         .stepContent{
                             display:flex;
                             flex-direction:column;
                             height:80%;
                             width:80%;
-                            margin-left:2rem;
+                            margin-left:.5rem;
                             margin-top:0;
+                            flex-shrink: 5;
                             h4{
                                 font-size:1rem;
                                 margin-bottom:0;
@@ -121,45 +222,69 @@ color:$theme-color;
                                 font-size:.9rem;
                                 font-family:"Poppins";
                                 margin-top:0;
-                                margin-left:1rem;
+                                margin-left:.5rem;
                             }
+                            .stepDescription{
+                                font-size:.7rem;
+                                font-family:"Poppins";
+                            }
+                            
                         }
                       
                     }
                 }
+            .dashboardMiddlewrapper{
+                position:relative;
+                
+                display:flex;
+                flex-direction:column;
+                height:100%; 
+                align-items: flex-start;
+                
             }
-
         }
         .dashboardRight{
             position:relative;
-            top:2rem;
+            width:20vw;
+            height: 100%;
             grid-area:dashboardright;
             display:flex;
             align-items: flex-end;
+            justify-content: flex-start;
             flex-direction: column;
+            padding-right:3vw;
             
-          
-          
-          div{
-            position:relative;
-            display:inline-block;
-            top:2rem;
+          span{
+            font-size:1rem;
+            font-family: $f-primary;
+            letter-spacing: .1rem;
+            color: $theme-color;
+            font-weight: bold;
+            align-self: center;
           }
-            
-  
+          
+          .rightWrapper{
+            position:relative;
+            display:flex;
+            flex-direction:column;
+            top:2rem;
+            flex-shrink: 5;
             button{
                background-color:$theme-color;
-                width:10rem;
                 height:2.5rem;
-                border-radius:2rem;
-                margin:1rem;
-                padding:.3rem;
+                border-radius:.5rem;
+                margin:.5rem;
+                padding:.5rem;
+             font-size: .8rem;
                 a{
                     font-weight:bold;
 
                 }
             }
+          }
+            
+  
+            
             
         }
     }
-}
