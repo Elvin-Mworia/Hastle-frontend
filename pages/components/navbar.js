@@ -50,10 +50,10 @@ export default function Navbar(){
             </li>
           </ul>
         </nav>
-        <div className={styles.inputContainer}>
+        {/* <div className={styles.inputContainer}>
       <Input placeholder="Search" variant='outline' focusBorderColor='lime'     _placeholder={{  color: 'black' }}/>
         <FaSearch className={styles.searchIcon}/>
-        </div>
+        </div> */}
         
         <nav className={styles.navbarSec} >
           <ul>
