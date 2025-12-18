@@ -203,6 +203,11 @@
     width:100vw;
     height:20vh;
     align-items: center;
+    div{
+      a{
+        color:white;
+      }
+    }
   }
   div{
     width:20vw;
@@ -212,6 +217,9 @@
     display:flex;
     align-items: center;
     justify-content: center;
+    a{
+      color:white;
+    }
   }
 }
 
