@@ -1,5 +1,7 @@
+"use client";
 import MapBoxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { useControl } from 'react-map-gl';
+import mapboxgl from 'mapbox-gl';
 import {useSelector,useDispatch} from "react-redux";
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 const ACCESS_TOKEN='pk.eyJ1IjoibmVidWxhLTEiLCJhIjoiY2w5M3gzZDhhMXh3bjN1bWY1YmV2N2N2bCJ9.-Lo2VNwH1FRUBl6ssh0fTg';
