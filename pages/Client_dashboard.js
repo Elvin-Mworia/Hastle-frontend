@@ -138,7 +138,7 @@ animate="animate"
      <div className={styles.middle}>
        <Image src={svg} height={50} width={50} alt="No jobs illustration" />
       
-      <Button><Link href="/Post_Job"><a>Post Work</a></Link></Button> 
+      <Button><Link href="/Job"><a>Post Work</a></Link></Button> 
      </div>
     }
     </div>
